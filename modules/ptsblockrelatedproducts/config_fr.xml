@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>ptsblockrelatedproducts</name>
+	<displayName><![CDATA[Pts produits connexes Bloquer]]></displayName>
+	<version><![CDATA[1.1]]></version>
+	<description><![CDATA[Afficher les produits dans la m&ecirc;me cat&eacute;gorie ou li&eacute;s par Tag .... dans Carousel.]]></description>
+	<author><![CDATA[PrestaBrain]]></author>
+	<tab><![CDATA[front_office_features]]></tab>
+	<is_configurable>1</is_configurable>
+	<need_instance>0</need_instance>
+	<limited_countries></limited_countries>
+</module>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>payzen</name>
+	<displayName><![CDATA[PayZen]]></displayName>
+	<version><![CDATA[1.2f]]></version>
+	<description><![CDATA[Accepter les paiements par carte de cr&eacute;dit avec  PayZen]]></description>
+	<author><![CDATA[Lyra Network]]></author>
+	<tab><![CDATA[payments_gateways]]></tab>
+	<confirmUninstall><![CDATA[Etes-vous sûr de bien vouloir supprimer les détails de votre module ?]]></confirmUninstall>
+	<is_configurable>1</is_configurable>
+	<need_instance>1</need_instance>
+	<limited_countries></limited_countries>
+</module>

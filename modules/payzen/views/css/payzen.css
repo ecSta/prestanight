@@ -1,0 +1,53 @@
+/* invalid card data style */
+#payzen_standard .invalid {
+	background: none repeat scroll 0 0 #FAEBE7 !important;
+	border: 1px dashed #EB340A !important;
+}
+
+div.payzen_payment_module {
+	/* width: 50%;
+	padding-right: 15px; */
+	margin-bottom: 10px;
+}
+
+div.payzen_payment_module a {
+	border: 1px solid #D6D4D4;
+	border-radius: 4px 4px 4px 4px;
+	color: #333333;
+	display: block;
+	font-size: 17px;
+	font-weight: bold;
+	letter-spacing: -1px;
+	line-height: 23px;
+	padding: 33px 40px 34px 21px;
+	position: relative;
+	cursor: pointer;
+}
+
+div.payzen_payment_module a:HOVER {
+	background-color: #F6F6F6;
+}
+
+div.payzen_payment_module a.unclickable {
+	cursor: default !important;
+}
+
+div.payzen_payment_module a.unclickable:HOVER {
+	text-decoration: none !important;
+}
+	
+.payzen_payment_module img.logo {
+	width: 86px; 
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+
+.payzen_payment_form {
+	padding-left: 40px;
+	font-size: 13px;
+}
+
+.payzen_payment_form button {
+	float: none !important;
+}

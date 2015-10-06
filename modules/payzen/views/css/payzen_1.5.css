@@ -1,0 +1,33 @@
+/* invalid card data style */
+#payzen_standard .invalid {
+	background: none repeat scroll 0 0 #FAEBE7 !important;
+	border: 1px dashed #EB340A !important;
+}
+
+div.payzen_payment_module {
+	padding-bottom: 20px;
+}
+
+div.payzen_payment_module a.unclickable {
+	cursor: default;
+}
+
+div.payzen_payment_module a.unclickable:HOVER {
+	text-decoration: none !important;
+}
+	
+.payzen_payment_module img.logo {
+	width: 86px; 
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.payzen_payment_module img {
+	float: none !important;
+}
+
+.payzen_payment_form {
+	padding-left: 40px;
+	font-size: 13px;
+	text-transform: none !important;
+}
