@@ -106,6 +106,7 @@ hr {
 }
 #abu_what_is_so_nuit .well { font-size: 1.1em; font-weight: 300; padding-bottom: 3em }
 #abu_what_is_so_nuit h1 { font-size: 20px; letter-spacing: .2em; text-transform: uppercase; }
+#abu_what_is_so_nuit h4 { font-size: inherit; font-weight: 300; line-height: inherit; margin: inherit; }
 #abu_what_is_so_nuit,
 #abu_categories { margin: 3em 0 0 }
 #abu_categories .relative { padding: 5px; transition: all .3s ease; -webkit-transition: all .3s ease; }
@@ -276,6 +277,9 @@ label[for="cgv"], label[for="agreeMetre"] { display: inline-block; padding-left:
 /********************************************************************************************
  * MODULE
  */
+/* ptsslideshow */
+#pts-slideshow li .caption h3 { font-size: inherit; font-weight: inherit; line-height: inherit; margin: inherit }
+
 /* ptsBlockManufacturer */
 .ptsblockmanufacturer {
     background: #FFF;
@@ -332,6 +336,7 @@ label[for="cgv"], label[for="agreeMetre"] { display: inline-block; padding-left:
 .fancybox-opened { z-index: 10050 }
 
 /* PTS block static content */
+.ptsstaticontent_bottom h6 { font-size: inherit; font-weight: inherit; line-height: inherit; margin: inherit; }
 .ptsstaticontent_bottom .reassurances-center .reassurance-title { cursor: default }
 
 /* Block layered > product-list filtres */

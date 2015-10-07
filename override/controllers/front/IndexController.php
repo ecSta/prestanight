@@ -5,13 +5,12 @@
 
 class IndexController extends IndexControllerCore
 {
-	public $php_self = 'index';
-
-	public function initContent() {
-		global $id_lang;
-
-		$cats = Category::getHomeCategories($id_lang);
-
+	public function initContent()
+	{
+		$cats = Category::getHomeCategories($this->context->language->id);
+		$this->context->smarty->assign(array(
+			'cats' => $cats
+		));
 		parent::initContent();
 	}
 }

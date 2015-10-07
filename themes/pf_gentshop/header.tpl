@@ -28,11 +28,11 @@
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8 ie7" lang="{$language_code|escape:'html':'UTF-8'}"><![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9 ie8" lang="{$language_code|escape:'html':'UTF-8'}"><![endif]-->
 <!--[if gt IE 8]> <html class="no-js ie9" lang="{$language_code|escape:'html':'UTF-8'}"><![endif]-->
-
 <html lang="{$language_code|escape:'html':'UTF-8'}" dir="{$LANG_DIRECTION}" class="{$LANG_DIRECTION}">
     <head>
         <meta charset="utf-8" />
         <title>{$meta_title|escape:'html':'UTF-8'}</title>
+        <meta name="title" content="{$meta_title|escape:'html':'UTF-8'}" />
 {if isset($meta_description) AND $meta_description}
         <meta name="description" content="{$meta_description|escape:'html':'UTF-8'}" />
 {/if}
@@ -81,6 +81,7 @@
                 <p>{l s='You cannot place a new order from your country.'} <span class="bold">{$geolocation_country|escape:'html':'UTF-8'}</span></p>
             </div>
         {/if}
+
         <section class="banner hidden-xs hidden-sm">
             <div class="container">
                 {hook h="displayBanner"}
@@ -161,8 +162,8 @@
                     <div class="container text-center">
                         <h1>SONUIT : lit, chambre  et mobilier d’interieur personnalisable</h1><hr />
                         <p>Avec SONUIT, créez l’intérieur qui vous ressemble, aux couleurs et aux dimensions qui mettrons en valeur votre foyer.</p>
-                        <p>Vous trouverez du mobilier de chambre pour toute la famille : lit, lit evolutif, lit mezzanine, lit superposé, lit gigogne, armoire, bureau, chambre sur mesure, bibliothèque et dressing sur mesure, tapis, fauteuil, luminaire et autres accessoires d’intérieur.</p>
-                        <p>Venez découvrir notre collection de mobilier personnalisable.<br />Choisissez les couleurs et dimensions de votre lit, les tissus de votre fauteuil, les accessoires de votre dressing sur mesure, la finition de votre armoire, l’agencement de la chambre de votre enfant. Créez LA pièce originale et unique.</p>
+                        <h4>Vous trouverez du mobilier de chambre pour toute la famille : lit, lit evolutif, lit mezzanine, lit superposé, lit gigogne, armoire, bureau, chambre sur mesure, bibliothèque et dressing sur mesure, tapis, fauteuil, luminaire et autres accessoires d’intérieur.</h4>
+                        <br />Venez découvrir notre collection de mobilier personnalisable.<br /><h4>Choisissez les couleurs et dimensions de votre lit, les tissus de votre fauteuil, les accessoires de votre dressing sur mesure, la finition de votre armoire, l’agencement de la chambre de votre enfant. Créez LA pièce originale et unique.</h4><br />
                         <p>Vitaminez votre intérieur en quelques clics…<br />Sur sonuit.fr, on profite pleinement des services de conception, des conseils en agencement, des astuces gain de place, des couleurs pétillantes, des lignes épurées, ainsi que des tendances émergentes… De quoi en séduire plus d’un!</p>
                     </div>
                 </div>

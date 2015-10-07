@@ -492,8 +492,10 @@ function reloadContent(params_plus)
 			if (result.meta_keywords != '')
 				$('meta[name="keywords"]').attr('content', result.meta_keywords);
 
-			if (result.meta_title != '')
+			if (result.meta_title != '') {
 				$('title').html(result.meta_title);
+				$('meta[name="title"]').attr('content', result.meta_title);
+			}
 
 			if (result.heading != '')
 				$('h1.page-heading .cat-name').html(result.heading);

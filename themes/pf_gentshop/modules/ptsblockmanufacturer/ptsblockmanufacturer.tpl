@@ -37,6 +37,9 @@
 							{/foreach}
 						</div>*}
 
+
+						{*ABU: nouvel arrangement des items - suppression du carousel*}
+
 						{assign var="manuRows" value=(($ptsmanufacturers|count)/$manuf_page)|intval}
 						{assign var="manuRest" value=($ptsmanufacturers|count)%$manuf_page}
 						{$ptsmanufacterer = array_chunk($ptsmanufacturers, $manuf_page)}
@@ -46,7 +49,7 @@
 								{if $smarty.foreach.manufLoop.index == $manuRows && ($manuRest%2) != 0}<div class="col-xs-12 col-xs-offset-{$manuf_page-$manuRest}">{/if}
 								{foreach from=$ptsmanufacturers item=manuf name=ptsmanufacturer}
 									<div class="col-xs-6 col-sm-4 col-md-2{if $smarty.foreach.manufLoop.index == $manuRows && ($manuRest%2) == 0 && $smarty.foreach.ptsmanufacturer.index == 0} col-md-offset-{$manuf_page-$manuRest}{/if}">
-										<div class="block_manuf clearfix" data-toggle="tooltip" data-placement="top" title="{$manuf.name}">
+										<h5 class="block_manuf clearfix" data-toggle="tooltip" data-placement="top" title="{$manuf.name}">
 											{if $manuf.linkIMG}
 												<div class="blog-image">
 													{*ABU: desactive les link en attendant resolution MySQL query stop during execution*}
@@ -55,7 +58,7 @@
 													{*</a>*}
 												</div>
 											{/if}
-										</div>
+										</h5>
 									</div>
 								{/foreach}
 								{if $smarty.foreach.manufLoop.index == $manuRows && ($manuRest%2) != 0}</div>{/if}

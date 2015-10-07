@@ -5,7 +5,7 @@
 {else}
 {assign var="hcol" value=4}
 {/if}
-   
+
         {foreach name=items from=$htmlitems item=hItem}
             {if $hItem.col_lg<=0}
                 {$hItem.col_lg=floor(12/count($htmlitems))}
@@ -21,18 +21,18 @@
                         {if $hItem.image}
                             <img src="{$module_dir}images/{$hItem.image}" class="item-img img-responsive" alt="" />
                         {/if}
-                    {if $hItem.url}</a>{/if}  
+                    {if $hItem.url}</a>{/if}
 
                     {if $hItem.title && $hItem.title_use == 1}
                     <div class="title_block"><span>{$hItem.title}</span></div>
                     {/if}
-                    <div class="block_content description" data-href="{$hItem.url|escape:'html':'UTF-8'}">
+                    <h6 class="block_content description" data-href="{$hItem.url|escape:'html':'UTF-8'}">
                         {if $hItem.html}
-                            {$hItem.html}                        
+                            {$hItem.html}
                         {/if}
-                    </div>
+                    </h6>
                 </div>
-            </div> 
+            </div>
         {/foreach}
     {/if}
 
