@@ -279,7 +279,7 @@
 										{if $priceDisplay >= 0 && $priceDisplay <= 2}
 											{hook h="displayProductPriceBlock" product=$product type="old_price"}
 											<span id="old_price_display">{if $productPriceWithoutReduction > $productPrice}{convertPrice price=$productPriceWithoutReduction}{/if}</span>
-											<!-- {if $tax_enabled && $display_tax_label == 1}{if $priceDisplay == 1}{l s='tax excl.'}{else}{l s='tax incl.'}{/if}{/if} -->
+											&nbsp;<small>{l s='Price usually seen on stores'}</small>
 										{/if}
 									</p>
 									{if $priceDisplay == 2}

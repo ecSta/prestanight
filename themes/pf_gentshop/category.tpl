@@ -67,7 +67,7 @@
                        <div id="category_description_short">{$description_short}</div>
                        <div id="category_description_full" style="display:none">{$category->description}</div>
                    {else}
-                       <div class="rte">{$category->description}</div>
+                       <h2 class="rte">{$category->description|strip_tags}</h2>
                    {/if}
                </div>
            {/if}
@@ -80,7 +80,7 @@
             <ul class="links clearfix ">
             {foreach from=$subcategories item=subcategory}
                 <li>
-                    <a class="subcategory-name" href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}">{$subcategory.name|truncate:25:'...'|escape:'html':'UTF-8'|truncate:350}</a>
+                    <a class="subcategory-name" href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}"><h3>{$subcategory.name|strip_tags|truncate:25:'...'|escape:'html':'UTF-8'|truncate:350}</h3></a>
                 </li>
             {/foreach}
             </ul>

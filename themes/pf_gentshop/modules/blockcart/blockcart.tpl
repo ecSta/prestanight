@@ -231,9 +231,9 @@
 		<div class="clearfix">
 			<div class="layer_cart_product col-xs-12 col-md-6">
 				<span class="cross" title="{l s='Close window' mod='blockcart'}"></span>
-				<h2>
+				<p class="cartTitle">
 					<i class="icon-ok"></i>{l s='Product successfully added to your shopping cart' mod='blockcart'}
-				</h2>
+				</p>
 				<div class="product-image-container layer_cart_img">
 				</div>
 				<div class="layer_cart_product_info">
@@ -250,7 +250,7 @@
 				</div>
 			</div>
 			<div class="layer_cart_cart col-xs-12 col-md-6">
-				<h2>
+				<p>
 					<!-- Plural Case [both cases are needed because page may be updated in Javascript] -->
 					<span class="ajax_cart_product_txt_s {if $cart_qties < 2} unvisible{/if}">
 						{l s='There are [1]%d[/1] items in your cart.' mod='blockcart' sprintf=[$cart_qties] tags=['<span class="ajax_cart_quantity">']}
@@ -259,7 +259,7 @@
 					<span class="ajax_cart_product_txt {if $cart_qties > 1} unvisible{/if}">
 						{l s='There is 1 item in your cart.' mod='blockcart'}
 					</span>
-				</h2>
+				</p>
 
 				<div class="layer_cart_row">
 					<strong class="dark">

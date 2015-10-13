@@ -2,22 +2,22 @@
  * Web Application Prefix Apply For Making Owner Styles
  */
 /**
- *   Blocks Layout Selectors 
+ *   Blocks Layout Selectors
  */
 /**
  * Product Item Selectors
  */
 /***********************************************************************/
 /**
-* Transition-timing-function property@mixin 
+* Transition-timing-function property@mixin
 */
 /*background RGBA
 ============================================*/
 /****/
 /* RIGHT TO LEFT */
 /** CHECKOUT BY STEP */
-/*  
- * LAYOUT VARIABLES 
+/*
+ * LAYOUT VARIABLES
  */
 /*******************************************************************
 					Cart Block Styles
@@ -335,34 +335,34 @@
     padding: 30px 30px 30px 30px;
     overflow: hidden;
     position: static; }
-    #layer_cart .layer_cart_product h2 {
+    #layer_cart .layer_cart_product .cartTitle {
       font: 400 23px/29px "pluto", sans-serif;
       color: #46a74e;
       margin-bottom: 22px;
       padding-right: 100px; }
-      .rtl #layer_cart .layer_cart_product h2 {
+      .rtl #layer_cart .layer_cart_product .cartTitle {
         padding-left: 100px;
         padding-right: inherit; }
       @media (max-width: 767px) {
-        #layer_cart .layer_cart_product h2 {
+        #layer_cart .layer_cart_product .cartTitle {
           font-size: 18px;
           padding-right: 0;
           line-height: normal; }
-          .rtl #layer_cart .layer_cart_product h2 {
+          .rtl #layer_cart .layer_cart_product .cartTitle {
             padding-left: 0;
             padding-right: inherit; } }
-      #layer_cart .layer_cart_product h2 i {
+      #layer_cart .layer_cart_product .cartTitle i {
         font-size: 30px;
         line-height: 30px;
         float: left;
         padding-right: 8px; }
-        .rtl #layer_cart .layer_cart_product h2 i {
+        .rtl #layer_cart .layer_cart_product .cartTitle i {
           float: right; }
-        .rtl #layer_cart .layer_cart_product h2 i {
+        .rtl #layer_cart .layer_cart_product .cartTitle i {
           padding-left: 8px;
           padding-right: inherit; }
         @media (max-width: 767px) {
-          #layer_cart .layer_cart_product h2 i {
+          #layer_cart .layer_cart_product .cartTitle i {
             font-size: 22px;
             line-height: 22px; } }
     #layer_cart .layer_cart_product .product-image-container {
@@ -415,14 +415,14 @@
       #layer_cart .layer_cart_cart {
         border-left: none;
         border-top: 1px solid #eee; } }
-    #layer_cart .layer_cart_cart h2 {
+    #layer_cart .layer_cart_cart .cartTitle {
       font: 400 23px/29px "pluto", sans-serif;
       color: #555555;
       border-bottom: 1px solid #eee;
       padding-bottom: 13px;
       margin-bottom: 17px; }
       @media (max-width: 767px) {
-        #layer_cart .layer_cart_cart h2 {
+        #layer_cart .layer_cart_cart .cartTitle {
           font-size: 18px; } }
     #layer_cart .layer_cart_cart .layer_cart_row {
       padding: 0 0 7px 0;
@@ -480,7 +480,7 @@
   border-top: 1px solid #eee;
   padding: 26px 30px 40px 30px;
   position: relative; }
-#layer_cart .crossseling h2 {
+#layer_cart .crossseling .cartTitle {
   font: 400 23px/26px "pluto", sans-serif;
   color: #555555;
   margin-bottom: 25px; }

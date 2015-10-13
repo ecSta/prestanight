@@ -129,6 +129,9 @@ hr {
 #thumbs_list { height: 108px; padding: 0; }
 #thumbs_list li { width: 110px; float: left }
 .box-info-product { border: 0 none }
+#old_price { text-decoration: none }
+#old_price_display { text-decoration: line-through }
+#old_price small { font-size: .77em; font-weight: normal }
 .content_prices, .product_attributes { padding: 20px 0 0 }
 .pb-center-column { margin-bottom: 0 }
 .pb-center-column h1 { padding-bottom: 0 }
@@ -185,6 +188,9 @@ hr {
 #categories_block_left .tree-menu > ul > li > a { white-space: inherit }
 
 /* Product-list */
+.category-info { margin: 15px }
+.category-info h2.rte { font-size: 1.07em; margin: 0 }
+#subcategories h3 { font-size: inherit; margin: 0; display: inline; }
 .page-product-box .product-container, .product-block { padding: 0 5px }
 .product-block .image { outline: 0 none }
 .product-block .price-quick { bottom: 42px; left: 40px; z-index: 1000 }
