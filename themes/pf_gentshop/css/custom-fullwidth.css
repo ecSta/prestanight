@@ -46,6 +46,8 @@ hr {
 
 /* Header Main Menu */
 .main-menu.mainnav-v2 .quick-action > div { line-height: 70px }
+.main-menu.mainnav-v2 .btn-group:hover, .main-menu.mainnav-v2 .btn-group:focus, .main-menu.mainnav-v2 .btn-group.search-display { background: 0 none }
+#hotlineService span { border-bottom: 1px dotted teal }
 @media (min-width: 1200px) {
   #header.header-v2.hide-bar .pts-megamenu .navbar-nav > li > a,
   .pts-megamenu .navbar-nav > li > a { font-size: 15px; padding-left: 17px; padding-right: 17px; margin: 0; padding-top: 27px; }
@@ -346,6 +348,9 @@ label[for="cgv"], label[for="agreeMetre"] { display: inline-block; padding-left:
 .ptsstaticontent_bottom .reassurances-center .reassurance-title { cursor: default }
 
 /* Block layered > product-list filtres */
+#layered_form .layered_filter_ul > li:nth-child(even) { float: right }
+#layered_form .layered_filter_ul > li > label { display: inline }
+#layered_form .layered_filter_ul > li > div.checker input { cursor: pointer; display: inline-block !important }
 .ui-slider.ui-widget-content { background: #FFF }
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { background: #F7F7F7; border-color: #CACACA }
 .ui-state-default, .ui-widget-content .ui-state-default:hover, .ui-widget-header .ui-state-default:hover { background: #F7F7F7; border-color: #77BEB6 }

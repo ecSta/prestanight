@@ -3,14 +3,17 @@
 *}
 
 <header id="header" class="header-v2">
-	<section id="topbar" class="topbar-v2 col-md-12 col-sm-7 col-xs-7">
+	<section id="topbar" class="topbar-v2 col-md-12 col-sm-7 col-xs-4">
 		<div class="container clearfix">
             {if $page_name =='index'}
 			<h2>{l s='Bed, bedroom & customizable interior furnishings'}</h2>
 			{/if}
 			<div class="quick-access">
 				{hook h="displayNav"}
-				<div class="hidden-xs"><span class="hidden-md">{l s="Hotline"}&nbsp;</span><i class="icon-phone"></i>&nbsp;04 22 13 20 83</div>
+				<div id="hotlineService" class="hidden-xs" title="{l s='From Monday to Friday, <br />10am to 6pm'}" data-toggle="tooltip" data-placement="bottom" data-container="body" data-html="true">
+					<span class="hidden-md">{l s="Hotline"}&nbsp;</span>
+					<i class="icon-phone"></i>&nbsp;04 22 13 20 83
+				</div>
 			</div>
 		</div>
 	</section>

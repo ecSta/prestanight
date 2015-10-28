@@ -295,15 +295,17 @@ $(document).on('click', '#customizedDatas input', function(e){
 		getProductAttribute();
 
 		// ABU Edit: move .switch-selection for the switch effect
-		var that = $(this),
-			count = $(this).parent().find('input').length,
-			el = null;
-		that.parent().find('input').each(function(i, input) {
-			if($(input).attr('id') == that.attr('id')) el = i;
+		var that  = $(this),
+			el    = null;
+		that.siblings('input').each(function(i, input) {
+			if($(input).attr('id') == that.attr('id')) {
+				el = i;
+				return false; // break out of $.each
+			}
 		});
 		if( el !== null ) {
 			that.siblings('.switch-selection').css({
-				left: el * (100 / count) + '%'
+				left: el * (100 / that.siblings('input').length) + '%'
 			});
 		}
 		// end--/ ABU Edit: move
@@ -1107,7 +1109,7 @@ function checkUrl()
 						// $('input:radio[value=' + attributesCombinations[a]['id_attribute'] + ']').attr('checked', true);
 						var that = $('input:radio[name="group_' + attributesCombinations[a]['id_attribute_group'] + '"]').attr('checked', false)
 							.filter('[value="' + attributesCombinations[a]['id_attribute'] + '"]').attr('checked', true);
-						if(that.is('.switch-input')) that.siblings('.switch-selection').css('left', (100 / that.index()) +'%');
+						if(that.is('.switch-input')) that.siblings('.switch-selection').css('left', (100 / that.siblings('input').length) +'%');
 						// /end -- ABU
 						$('input[type=hidden][name=group_' + attributesCombinations[a]['id_attribute_group'] + ']').val(attributesCombinations[a]['id_attribute']);
 						$('select[name=group_' + attributesCombinations[a]['id_attribute_group'] + ']').val(attributesCombinations[a]['id_attribute']);
