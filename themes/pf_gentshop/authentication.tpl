@@ -22,6 +22,7 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
+<div class="p20">
 {capture name=path}
 	{if !isset($email_create)}{l s='Authentication'}{else}
 		<a href="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" rel="nofollow" title="{l s='Authentication'}">{l s='Authentication'}</a>
@@ -399,7 +400,7 @@
 							<label class="control-label col-sm-4" for="city_invoice">{l s='City'} <sup>*</sup></label>
 							<div class="col-sm-6">
 								<input type="text" class="form-control" name="city_invoice" id="city_invoice" value="{if isset($smarty.post.city_invoice) && $smarty.post.city_invoice}{$smarty.post.city_invoice}{/if}" />
-						
+
 							</div>
 						</div>
 						{elseif $field_name eq "country" || $field_name eq "Country:name"}
@@ -431,10 +432,10 @@
 							<label class="control-label col-sm-4" for="postcode_invoice">{l s='Zip / Postal Code'} <sup>*</sup></label>
 							<div class="col-sm-6">
 								<input type="text" class="form-control" name="postcode_invoice" id="postcode_invoice" value="{if isset($smarty.post.postcode_invoice) && $smarty.post.postcode_invoice}{$smarty.post.postcode_invoice}{/if}" onkeyup="$('#postcode').val($('#postcode').val().toUpperCase());" />
-						
+
 							</div>
 						</div>
-						{/if}					
+						{/if}
 						{if !$stateExist}
 						<div class="required id_state_invoice form-group unvisible">
 							<label class="control-label col-sm-4" for="id_state_invoice">{l s='State'} <sup>*</sup></label>
@@ -460,19 +461,19 @@
 						</div>
 						{if isset($one_phone_at_least) && $one_phone_at_least}
 							<div class="inline-infos required is_customer_param"><label class="col-sm-offset-4 col-sm-6">{l s='You must register at least one phone number.'}</label></div>
-						{/if}					
+						{/if}
 						<div class="form-group is_customer_param">
 							<label class="control-label col-sm-4" for="phone_invoice">{l s='Home phone'}</label>
 							<div class="col-sm-6">
 								<input type="text" class="form-control" name="phone_invoice" id="phone_invoice" value="{if isset($smarty.post.phone_invoice) && $smarty.post.phone_invoice}{$smarty.post.phone_invoice}{/if}" />
-						
+
 							</div>
 						</div>
 						<div class="{if isset($one_phone_at_least) && $one_phone_at_least}required {/if}form-group">
 							<label class="control-label col-sm-4" for="phone_mobile_invoice">{l s='Mobile phone'}{if isset($one_phone_at_least) && $one_phone_at_least} <sup>*</sup>{/if}</label>
 							<div class="col-sm-6">
 									<input type="text" class="form-control" name="phone_mobile_invoice" id="phone_mobile_invoice" value="{if isset($smarty.post.phone_mobile_invoice) && $smarty.post.phone_mobile_invoice}{$smarty.post.phone_mobile_invoice}{/if}" />
-					
+
 							</div>
 						</div>
 						<input type="hidden" name="alias_invoice" id="alias_invoice" value="{l s='My Invoice address'}" />
@@ -548,8 +549,8 @@
 				<div class="col-sm-6">
 					<input type="password" class="is_required validate form-control" data-validate="isPasswd" name="passwd" id="passwd" />
 					<span class="form_info">{l s='(Five characters minimum)'}</span>
-				</div> 
-			</div> 
+				</div>
+			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-4">{l s='Date of Birth'}</label>
 				<div class="col-sm-6">
@@ -654,14 +655,14 @@
 				<h3 class="page-subheading">{l s='Your address'}</h3>
 				{foreach from=$dlv_all_fields item=field_name}
 					{if $field_name eq "company"}
-						
+
 							<div class="form-group">
 								<label class="control-label col-sm-4" for="company">{l s='Company'}{if in_array($field_name, $required_fields)} <sup>*</sup>{/if}</label>
 								<div class="col-sm-6">
 									<input type="text" class="form-control" id="company" name="company" value="{if isset($smarty.post.company)}{$smarty.post.company}{/if}" />
 								</div>
 							</div>
-						
+
 					{elseif $field_name eq "vat_number"}
 						<div id="vat_number" style="display:none;">
 							<div class="form-group">
@@ -749,7 +750,7 @@
 							<input type="text" class="form-control" name="postcode" id="postcode" value="{if isset($smarty.post.postcode)}{$smarty.post.postcode}{/if}" onkeyup="$('#postcode').val($('#postcode').val().toUpperCase());" />
 						</div>
 					</div>
-				{/if}		
+				{/if}
 				{if $stateExist eq false}
 					<div class="required id_state select unvisible form-group">
 						<label class="control-label col-sm-4" for="id_state">{l s='State'} <sup>*</sup></label>
@@ -811,6 +812,7 @@
 		</div>
 	</form>
 {/if}
+</div>
 {strip}
 {if isset($smarty.post.id_state) && $smarty.post.id_state}
 	{addJsDef idSelectedState=$smarty.post.id_state|intval}

@@ -1,4 +1,5 @@
 
+{assign var=pimg  value=Product::getCover($product.id_product)}
 <div class="product-block {if Configuration::get('PTS_CP_PRODUCT_LAYOUT') == 'gallery' && isset($product.ptsimages)}gallery {/if}" itemscope="" itemtype="http://schema.org/Product"><div class="product-container">
 	{hook h='displayProductListGallery' product=$product}
 		<div class="product-image-container image swap">
@@ -15,9 +16,9 @@
 				{/if*}
 
 				<a class="img product_img_link"	href="{$product.link|escape:'html':'UTF-8'}" itemprop="url">
-					<img class="replace-2x img-responsive" src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')|escape:'html':'UTF-8'}" alt="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}" {if isset($homeSize)} width="{$homeSize.width}" height="{$homeSize.height}"{/if} itemprop="image" />
+					{*<img class="replace-2x img-responsive" src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home_default')|escape:'html':'UTF-8'}" alt="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}" {if isset($homeSize)} width="{$homeSize.width}" height="{$homeSize.height}"{/if} itemprop="image" />*}
+					<img class="replace-2x img-responsive" src="{$link->getImageLink($product.link_rewrite, $pimg.id_image, 'home_default')|escape:'html':'UTF-8'}" alt="{if !empty($product.legend)}{$product.legend|escape:'html':'UTF-8'}{else}{$product.name|escape:'html':'UTF-8'}{/if}" {if isset($homeSize)} width="{$homeSize.width}" height="{$homeSize.height}"{/if} itemprop="image" />
 				</a>
-
 				{hook h='displayProductListSwap' product=$product}
 
 				{if (!$PS_CATALOG_MODE AND ((isset($product.show_price) && $product.show_price) || (isset($product.available_for_order) && $product.available_for_order)))}

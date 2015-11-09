@@ -53,9 +53,9 @@
 											{if $manuf.linkIMG}
 												<div class="blog-image">
 													{*ABU: desactive les link en attendant resolution MySQL query stop during execution*}
-													{*<a href="{$manuf.link|escape:'html':'UTF-8'}" title="{$manuf.name}">*}
+													<a href="{$manuf.link|escape:'html':'UTF-8'}" title="{$manuf.name}">
 														<img class="img-responsive" src="{$manuf.linkIMG}" alt="{$manuf.name}" />
-													{*</a>*}
+													</a>
 												</div>
 											{/if}
 										</h5>
