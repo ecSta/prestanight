@@ -40,13 +40,13 @@
                             {include file="$tpl_dir./scenes.tpl" scenes=$scenes}
                             {if $category->description}
                                 <div class="cat_desc rte">
-                                {if Tools::strlen($category->description) > 350}
+                                {*if Tools::strlen($category->description) > 350}
                                     <div id="category_description_short">{$description_short}</div>
                                     <div id="category_description_full" class="unvisible">{$category->description}</div>
                                     <a href="{$link->getCategoryLink($category->id_category, $category.link_rewrite)|escape:'html':'UTF-8'}" class="lnk_more">{l s='More'}</a>
-                                {else}
+                                {else*}
                                     <div>{$category->description}</div>
-                                {/if}
+                                {*/if*}
                                 </div>
                             {/if}
                             </div>
@@ -62,13 +62,14 @@
         </div>
         <div class="category-info">
             {if $category->description}
-               <div class="cat_desc">
-                   {if strlen($category->description) > 350}
+               <div class="cat_desc relative">
+                   {*if strlen($category->description) > 350}
                        <div id="category_description_short">{$description_short}</div>
                        <div id="category_description_full" style="display:none">{$category->description}</div>
-                   {else}
-                       <h2 class="rte">{$category->description|strip_tags}</h2>
-                   {/if}
+                   {else*}
+                       <h2 class="rte">{$category->description}</h2>
+                   {*/if*}
+                   <div class="displayMore"><i class="icon icon-chevron-down"></i></div>
                </div>
            {/if}
         </div>
