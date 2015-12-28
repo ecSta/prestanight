@@ -64,6 +64,8 @@ jQuery(document).ready(function($) {
 			that = $(this);
 		that.toggleClass('open');
 		catDiv.css('max-height', that.is('.open') ? '500px' : that.data('height'));
-		that.children('i').toggleClass('icon-chevron-down icon-chevron-up');
+		setTimeout(function() {
+			that.children('i').toggleClass('icon-chevron-down icon-chevron-up');
+		}, 1000);
 	}).data('height', $('.category-info .cat_desc .rte').height() + 'px');
 });

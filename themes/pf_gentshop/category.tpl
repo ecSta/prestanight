@@ -28,6 +28,14 @@
 
         <h1 class="page-heading{if (isset($subcategories) && !$products) || (isset($subcategories) && $products) || !isset($subcategories) && $products} product-listing{/if}">{$category->name|escape:'html':'UTF-8'}{if isset($categoryNameComplement)}&nbsp;{$categoryNameComplement|escape:'html':'UTF-8'}{/if}
             {include file="$tpl_dir./category-count.tpl"}
+
+            {if $category->name|lower|strstr:"dressing"}
+            <div class="pull-right p10">
+                <a href="/nous-contacter?surmesure=1&id_contact=2" class="btn btn-outline" target="_self">
+                    <span>{l s='Ask for a custom study'}</span>
+                </a>
+            </div>
+            {/if}
         </h1>
 
         <div class="categories clearfix">

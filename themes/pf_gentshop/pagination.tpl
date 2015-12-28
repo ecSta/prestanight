@@ -82,7 +82,7 @@
 					{assign var='p_previous' value=$p-1}
 					<li id="pagination_previous{if isset($paginationId)}_{$paginationId}{/if}" class="pagination_previous">
 						<a {$no_follow_text} href="{$link->goPage($requestPage, $p_previous)}" rel="prev">
-							<!-- <i class="icon-angle-left"></i> -->{l s='Previous'}
+							<!-- <i class="icon-angle-left"></i> --><span>{l s='Previous'}</span>
 						</a>
 					</li>
 				{else}
@@ -173,7 +173,7 @@
 					{assign var='p_next' value=$p+1}
 					<li id="pagination_next{if isset($paginationId)}_{$paginationId}{/if}" class="pagination_next">
 						<a {$no_follow_text} href="{$link->goPage($requestPage, $p_next)}" rel="next">
-							{l s='Next'}<!-- <i class="icon-angle-right"></i> -->
+							<span>{l s='Next'}</span><!-- <i class="icon-angle-right"></i> -->
 						</a>
 					</li>
 				{else}
