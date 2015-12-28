@@ -7,9 +7,11 @@
     -ms-user-select: none;
     user-select: none;
 }
+.wf { width: 100% }
 .pr20 { padding-right: 20px }
 .p10 { padding: 0 10px }
 .p20 { padding: 0 2em }
+.mb0 { margin-bottom: 0 !important }
 .text-lg { font-size: 1.1em }
 .uppercase { text-transform: uppercase }
 
@@ -247,7 +249,7 @@ hr {
   .product-block .price-quick { display: none }
   .product-block .action div.btn-action { margin: 0 auto }
 }
-#categories_block_left li span.grower { z-index: auto }
+#categories_block_left li span.grower { right: auto; left: 0; z-index: auto }
 
 /* Order */
 .order_delivery.row { margin-top: 2em !important }

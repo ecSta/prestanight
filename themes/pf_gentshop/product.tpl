@@ -405,6 +405,14 @@
 
 						<div class="box-cart-bottom">
 							<div{if (!$allow_oosp && $product->quantity <= 0) || !$product->available_for_order || (isset($restricted_country_mode) && $restricted_country_mode) || $PS_CATALOG_MODE} class="unvisible"{/if}>
+								{if $category->name|lower|strstr:"dressing"}
+								<p class="buttons_bottom_block no-print mb0">
+									<a href="/nous-contacter?surmesure=1&id_contact=2" class="btn btn-outline wf" target="_blank">
+										<span>{l s='Ask for a custom study'}</span>
+									</a>
+								</p>
+								{/if}
+
 								<p id="add_to_cart" class="buttons_bottom_block no-print">
 									<button type="submit" name="Submit" class="btn btn-default button">
 										<span>{l s='Add to cart'}</span>
@@ -414,7 +422,6 @@
 
 							<div class="action no-print">
 								{if isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS}{$HOOK_PRODUCT_ACTIONS}{/if}
-
 							</div>
 
 						</div> <!-- end box-cart-bottom -->
