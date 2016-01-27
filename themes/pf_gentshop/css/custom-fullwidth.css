@@ -329,6 +329,10 @@ label[for="cgv"], label[for="agreeMetre"] { display: inline-block; padding-left:
   font-size: 85%;
   font-weight: 300;
 }
+#blogpage .midContent {
+  margin: auto;
+  width: 990px;
+}
 #blogpage .extra-blogs {
   background-color: #E5E5E5;
   margin-top: 2em;
