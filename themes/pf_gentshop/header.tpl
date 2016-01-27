@@ -93,6 +93,8 @@
                 {include file=$THEME_HEADER_FILE}
             {else}
 
+                {*** NOT USED > see included header.tpl ***}
+
             <div id="header" class="header-v1">
                 <section id="topbar" class="topbar-v1">
                     <div class="container clearfix">

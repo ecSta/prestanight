@@ -41,9 +41,11 @@
 					</div>
 				</div>
 
+                {if isset($isBot) && !$isBot}
 				<div id="pts-mainnav" class="mainnav-v2 col-lg-6 col-md-9 col-sm-9 col-xs-10">
 					{hook h="displayMainmenu"}
 				</div>
+				{/if}
 
 				<div class="hidden-xs hidden-sm col-md-3 col-lg-2 col-lg-pull-1 logo inner">
 					<div id="logo-theme" class="logo-store">
@@ -61,9 +63,11 @@
 					</div>
 				</div>
 
+                {if isset($isBot) && !$isBot}
 				<div class="col-lg-6 quick-action pull-right">
 					{if isset($HOOK_TOP)}{$HOOK_TOP}{/if}
 				</div>
+				{/if}
 			</div>
 		</div>
 	</section>

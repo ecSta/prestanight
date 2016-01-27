@@ -72,15 +72,15 @@
 				{include file="{$module_tpl}_social.tpl"}
 			</div>*}
 
-			{if $tags && !empty($tags)}
+			{*if $tags && !empty($tags)}
 			<div class="blog-tags">
 				<span>{l s='Tags:' mod='leoblog'}</span>
 				{foreach from=$tags item=tag name=tag}
-					{*<a href="{$tag.link|escape:'html':'UTF-8'}" title="{$tag.tag|escape:'html':'UTF-8'}"><span>{$tag.tag}</span></a>*}
+					{<a href="{$tag.link|escape:'html':'UTF-8'}" title="{$tag.tag|escape:'html':'UTF-8'}"><span>{$tag.tag}</span></a>}
 					<span class="label label-default">{$tag.tag}</span>
 				{/foreach}
 			</div>
-			{/if}
+			{/if*}
 		</div>
 
 		{if !empty($samecats)||!empty($tagrelated)}

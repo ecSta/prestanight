@@ -340,6 +340,11 @@ label[for="cgv"], label[for="agreeMetre"] { display: inline-block; padding-left:
   padding-top: 2em;
 }
 .extra-blogs ul li { border-color: #CCC }
+/* Text formating */
+#blogpage .blog-content table {
+    border-collapse: separate;
+    border-spacing: 1em 0.5em;
+}
 
 
 /********************************************************************************************
