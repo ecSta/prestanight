@@ -93,7 +93,7 @@
                 {include file=$THEME_HEADER_FILE}
             {else}
 
-            <header id="header" class="header-v1">
+            <div id="header" class="header-v1">
                 <section id="topbar" class="topbar-v1">
                     <div class="container clearfix">
                         <div class="quick-access">
@@ -132,8 +132,7 @@
                         </div>
                     </div>
                 </section>
-
-            </header>
+            </div>
             {/if}
 
             {if $page_name =='index'}
@@ -191,20 +190,31 @@
             {/if}
 
             <section id="columns" class="offcanvas-siderbars">
-            {if $page_name !='index' && $page_name !='pagenotfound'}
+            {if $page_name|strpos:'module-leoblog' === 0}
+                <div class="breadcrumb blog">
+                    <div class="container">
+                        <!-- <a class="home" href="{$base_dir}" title="{l s='Return to shopping site'}"><i class="icon-shopping-cart"></i> {l s='Return to our products'}</a> -->
+                    </div>
+                </div>
+            {elseif $page_name !='index' && $page_name !='pagenotfound'}
                 {include file="$tpl_dir./breadcrumb.tpl"}
             {/if}
-                <div class="container main-content">
-                        <div class="row">
-                            {if isset($left_column_size) && !empty($left_column_size)}
-                            <div id="left_column" class="sidebar column col-xs-12 col-sm-12 col-md-{$left_column_size|intval} col-lg-{$left_column_size|intval} offcanvas-sidebar">
-                                <div class="sidebar-content">
-                                    {$HOOK_LEFT_COLUMN}
-                                </div>
-                            </div>
-                            {/if}
-                        {if isset($left_column_size) && isset($right_column_size)}{assign var='cols' value=(12 - $left_column_size - $right_column_size)}{else}{assign var='cols' value=12}{/if}
-                        <div id="center_column" class="center_column col-xs-12 col-sm-12 col-md-{$cols|intval} col-lg-{$cols|intval}">
-                                    <div id="content">
 
+            {if $page_name|strpos:'module-leoblog' === 0}
+                {assign var=left_column_size value=''}
+            {/if}
+
+                <div class="container main-content">
+                    <div class="row">
+                    {if isset($left_column_size) && !empty($left_column_size)}
+                        <div id="left_column" class="sidebar column col-xs-12 col-sm-12 col-md-{$left_column_size|intval} col-lg-{$left_column_size|intval} offcanvas-sidebar">
+                            <div class="sidebar-content">
+                                {$HOOK_LEFT_COLUMN}
+                            </div>
+                        </div>
+                    {/if}
+
+                    {if isset($left_column_size) && isset($right_column_size)}{assign var='cols' value=(12 - $left_column_size - $right_column_size)}{else}{assign var='cols' value=12}{/if}
+                        <div id="center_column" class="center_column col-xs-12 col-sm-12 col-md-{$cols|intval} col-lg-{$cols|intval}">
+                            <div id="content">
     {/if}

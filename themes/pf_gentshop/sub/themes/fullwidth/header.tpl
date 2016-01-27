@@ -3,6 +3,7 @@
 *}
 
 <header id="header" class="header-v2">
+    {if $page_name|strpos:'module-leoblog' !== 0}
 	<section id="topbar" class="topbar-v2 col-md-12 col-sm-7 col-xs-4">
 		<div class="container clearfix">
             {if $page_name =='index'}
@@ -17,6 +18,7 @@
 			</div>
 		</div>
 	</section>
+	{/if}
 
 	<div class="clearfix"></div>
 
@@ -40,7 +42,17 @@
 				</div>
 
 				<div id="pts-mainnav" class="mainnav-v2 col-lg-6 col-md-9 col-sm-9 col-xs-10">
+				{if $page_name|strpos:'module-leoblog' !== 0}
 					{hook h="displayMainmenu"}
+				{else}
+					<div class="col-lg-6 quick-action pull-right">
+						<div>
+							<div class="clearfix inner">
+								<a href="http://sonuit.fr">Retour au site marchant</a>
+							</div>
+						</div>
+					</div>
+				{/if}
 				</div>
 
 				<div class="hidden-xs hidden-sm col-md-3 col-lg-2 col-lg-pull-1 logo inner">
@@ -59,9 +71,11 @@
 					</div>
 				</div>
 
+				{if $page_name|strpos:'module-leoblog' !== 0}
 				<div class="col-lg-6 quick-action pull-right">
 					{if isset($HOOK_TOP)}{$HOOK_TOP}{/if}
 				</div>
+				{/if}
 			</div>
 		</div>
 	</section>

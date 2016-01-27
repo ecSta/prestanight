@@ -22,17 +22,17 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-{if !isset($content_only) || !$content_only}
-						</div>
-					</div><!-- #center_column -->
-							{if isset($right_column_size) && !empty($right_column_size)}
-								<div class="sidebar-content">
-									<div id="right_column" class="col-xs-12 col-sm-{$right_column_size|intval} column sidebar">{$HOOK_RIGHT_COLUMN}</div>
-								</div>
-							{/if}
+		{if !isset($content_only) || !$content_only}
+							</div><!-- #content -->
+						</div><!-- #center_column -->
 
-						</div><!-- #columns -->
-				</div>
+						{if isset($right_column_size) && !empty($right_column_size)}
+						<div class="sidebar-content">
+							<div id="right_column" class="col-xs-12 col-sm-{$right_column_size|intval} column sidebar">{$HOOK_RIGHT_COLUMN}</div>
+						</div>
+						{/if}
+					</div><!-- .row -->
+				</div><!-- .container.main-content -->
 
 				{if $page_name =='index'}
 				<div id="content-bottom" class="parallax">
@@ -41,7 +41,7 @@
 					</div>
 				</div>
 				{/if}
-			</section ><!-- .columns-container -->
+			</section ><!-- #columns -->
 
 			<!-- Bottom-->
 			{if $page_name =='index'}
@@ -55,6 +55,7 @@
 			{if isset($HOOK_FOOTER)}
 			<!-- Footer -->
 			<footer id="footer" class="hidden-print">
+				{if $page_name|strpos:'module-leoblog' !== 0}
 				<section id="pts-footer-top" class="footer-top parallax">
 					<div class="container">
 					<div class="inner">
@@ -92,6 +93,7 @@
 						</div>
 					</div></div>
 				</section>
+				{/if}
 
 				{*
 				<section class="maplocal">
@@ -116,6 +118,8 @@
 										{/if}
 										<p><span class="powered">© SoNuit - {date('Y')}</span></p>
 									</div>
+
+									{if $page_name|strpos:'module-leoblog' !== 0}
 									<div class="col-md-4 col-xs-12">
 										<ul id="payment_logos">
 											<li class="col-xs-3 greyLayout"><a href="https://payzen.eu/paiement-securise" title="PayZen, 100% sécurisé" target="_blank"><img class="img-responsive" src="{$img_dir}paylogo_payzen_securise.png" alt="PayZen, 100% sécurisé" /></a></li>
@@ -123,6 +127,7 @@
 											<li class="col-xs-3 greyLayout"><a href="{$link->getCMSLink(5, NULL)}"><img class="img-responsive" src="{$img_dir}paylogo_mastercard_securecode.png" alt="MasterCard, SecureCode" /></a></li>
 										</ul>
 									</div>
+									{/if}
 								</div>
 							</div>
 							<div id="footer-bottom" class="pull-right">
@@ -131,13 +136,11 @@
 						</div>
 					</div></div>
 				</section>
-
 			</footer>
-				{/if}
-		</div>
+			{/if}
+		</div> <!-- #page -->
+		{/if}
 
-		<!-- #page -->
-{/if}
-{include file="$tpl_dir./global.tpl"}
+		{include file="$tpl_dir./global.tpl"}
 	</body>
 </html>

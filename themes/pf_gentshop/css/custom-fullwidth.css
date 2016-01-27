@@ -10,7 +10,8 @@
 .wf { width: 100% }
 .pr20 { padding-right: 20px }
 .p10 { padding: 0 10px }
-.p20 { padding: 0 2em }
+.p20 { padding: 0 20px }
+.mh2 { margin: 2em 0 }
 .mb0 { margin-bottom: 0 !important }
 .text-lg { font-size: 1.1em }
 .uppercase { text-transform: uppercase }
@@ -318,6 +319,24 @@ label[for="cgv"], label[for="agreeMetre"] { display: inline-block; padding-left:
   -webkit-filter: grayscale(100%);
 }
 #header #cart h4 { font-size: 15px; font-weight: 300 }
+
+
+/********************************************************************************************
+ * GUIDE
+ */
+.breadcrumb.blog { padding: 5px }
+#blogpage .label {
+  font-size: 85%;
+  font-weight: 300;
+}
+#blogpage .extra-blogs {
+  background-color: #E5E5E5;
+  margin-top: 2em;
+  padding-bottom: 2em;
+  padding-top: 2em;
+}
+.extra-blogs ul li { border-color: #CCC }
+
 
 /********************************************************************************************
  * MODULE
