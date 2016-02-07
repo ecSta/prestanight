@@ -345,6 +345,8 @@ label[for="cgv"], label[for="agreeMetre"] { display: inline-block; padding-left:
     border-collapse: separate;
     border-spacing: 1em 0.5em;
 }
+#blogpage .blog-content a { border-bottom: 1px dashed #77BEB6; color: #00817F }
+#blogpage .blog-content a:hover { color: #77BEB6 }
 
 
 /********************************************************************************************
