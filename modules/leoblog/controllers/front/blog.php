@@ -224,12 +224,9 @@ class LeoblogblogModuleFrontController extends ModuleFrontController
 					unset( $tagrelated[$key] );
 					continue;
 				}
-				// Rewrite title
-				$aTitle              = explode(':', $tblog['meta_title']);
-				$tblog['meta_title'] = ucfirst( trim(isset($aTitle[1]) ? $aTitle[1] : $aTitle[0]) );
 				// Rewrite link
-				$tblog['link']       = $helper->getBlogLink( $tblog );
-				$tagrelated[$key]    = $tblog;
+				$tblog['link']    = $helper->getBlogLink( $tblog );
+				$tagrelated[$key] = $tblog;
 			}
 		}
 
@@ -289,14 +286,11 @@ class LeoblogblogModuleFrontController extends ModuleFrontController
 			}
 		}
 
-		$aTitle   = explode(':', $blog->meta_title);
-		$newTitle = ucfirst( trim(isset($aTitle[1]) ? $aTitle[1] : $aTitle[0]) );
-
 	    $vars = array(
 			'isBot'            => $isGoogleBot,
 			'tags'             => $tags,
 			// 'meta_title'       => ucfirst($blog->meta_title),
-			'meta_title'       => $newTitle,
+			'meta_title'       => trim($blog->meta_title),
 			'meta_keywords'    => $blog->meta_keywords,
 			'meta_description' => $blog->meta_description,
 			'blog'             => $blog,

@@ -339,8 +339,10 @@ label[for="cgv"], label[for="agreeMetre"] { display: inline-block; padding-left:
   padding-bottom: 2em;
   padding-top: 2em;
 }
-.extra-blogs ul li { border-color: #CCC }
-.extra-blogs ul li a { color: #333 }
+.extra-blogs ul li { border-color: #CCC; transition: all .3s ease; -webkit-transition: all .3s ease }
+.extra-blogs ul li:hover { text-indent: 1em }
+.extra-blogs ul li a { color: #333; transition: all .3s ease; -webkit-transition: all .3s ease }
+.extra-blogs ul li:hover a { color: #77BEB6 }
 /* Block de liens */
 .sideBlockLinks {
   border-left: 1px solid #43D9D6;
