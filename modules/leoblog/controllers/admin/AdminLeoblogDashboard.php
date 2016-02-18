@@ -1,4 +1,4 @@
-<?php 
+<?php
 	/******************************************************
 	 *  Leo Blog Content Management
 	 *
@@ -13,7 +13,7 @@
 	require_once(_PS_MODULE_DIR_ . 'leoblog/classes/comment.php');
 
 	class AdminLeoblogDashboardController extends ModuleAdminControllerCore {
- 		
+
 
 	 	public function __construct()
 		{
@@ -21,29 +21,29 @@
 			$this->display = 'view';
 			$this->addRowAction('view');
 			parent::__construct();
-			
-			 
+
+
 		}
 
 		public function initPageHeaderToolbar()
 		{
 			parent::initPageHeaderToolbar();
-        	$this->context->controller->addJS( __PS_BASE_URI__.'modules/leoblog/assets/admin/form.js' ); 
+        	$this->context->controller->addJS( __PS_BASE_URI__.'modules/leoblog/assets/admin/form.js' );
 			$this->page_header_toolbar_title = $this->l('Dashboard');
 			$this->page_header_toolbar_btn = array();
 		}
-		
+
 		protected function isValidPostData(){
-			return is_array($_POST); 
+			return is_array($_POST);
 		}
 
 		/**
 		 *
 		 */
-		public function postProcess(){ 
+		public function postProcess(){
 
 			if( Tools::isSubmit('saveConfiguration') && $this->isValidPostData() && Tools::getValue('link_rewrite') ){
-				 
+
 				LeoBlogConfig::updateConfigValue( 'cfg_global', serialize($_POST) ) ;
 			}
 		}
@@ -53,9 +53,9 @@
 			$this->addJqueryUi('ui.widget');
 			$this->addJqueryPlugin('tagify');
 		}
-		 
+
 		public function renderView(){
-		 	
+
 		 	$link = $this->context->link;
 
 			$quicktools = array();
@@ -65,14 +65,14 @@
 				'href' => $link->getAdminLink('AdminLeoblogCategories'),
 				'icon' => 'icon-desktop',
 				'class'	=> '',
-			);	
+			);
 
 			$quicktools[] = array(
 				'title' => $this->l('Add Category'),
 				'href' => $link->getAdminLink('AdminLeoblogCategories'),
 				'icon' => 'icon-list',
 				'class'	=> '',
-			);	
+			);
 
 
 			$quicktools[] = array(
@@ -80,21 +80,21 @@
 				'href' => $link->getAdminLink('AdminLeoblogBlogs'),
 				'icon' => 'icon-list',
 				'class'	=> '',
-			);	
+			);
 
 			$quicktools[] = array(
 				'title' => $this->l('Add Blog'),
 				'href' => $link->getAdminLink('AdminLeoblogBlogs').'&addleoblog_blog',
 				'icon' => 'icon-list',
 				'class'	=> '',
-			);	
+			);
 
 			$quicktools[] = array(
 				'title' => $this->l('Comments'),
 				'href' => $link->getAdminLink('AdminLeoblogBlogs').'&listcomments',
 				'icon' => 'icon-list',
 				'class'	=> '',
-			);	
+			);
 
 
 			$onoff = array(
@@ -118,7 +118,7 @@
 			$form = '';
 
 				$this->fields_form[0]['form'] = array(
-						'tinymce' => true, 
+						'tinymce' => true,
 						'legend' => array(
 							'title' => $this->l('General Setting'),
 							'icon' => 'icon-folder-close',
@@ -134,7 +134,7 @@
 			                    'id' => 'template',
 			                    'name' => 'template' ),
 			                    'default' => "default",
-			         
+
 			                 ),
 
 							array(
@@ -153,13 +153,13 @@
 								'label' => $this->l('Root Friendly URL'),
 								'name' => 'link_rewrite',
 								'required' => true,
-							
+
 								'desc' => $this->l('Make seo start with this, Example http://domain/blog'),
 								'default' => 'blog',
 
 							),
-							
-		 
+
+
  							array(
 								'type' => 'text',
 								'label' => $this->l('Meta Title'),
@@ -167,7 +167,7 @@
 								'lang' => true,
 								'cols'=> 40,
 								'rows'	=> 10,
-								'default' => 'Blog',	
+								'default' => 'Blog',
 								'desc' => $this->l('Display browser title on frontpage blog')
 							),
 							 array(
@@ -177,7 +177,7 @@
 								'lang' => true,
 								'cols'=> 40,
 								'rows'	=> 10,
-								'default' => '',	
+								'default' => '',
 								'desk' => $this->l('Display meta descrition on frontpage blog').'note: note &lt;&gt;;=#{}'
 							),
 							array(
@@ -208,7 +208,7 @@
 								'name' => 'rss_limit_item',
 								'default' => '20',
  								'desc' => 'Set Maximun shows in rss'
- 	
+
 							),
 							array(
 								'type' => 'text',
@@ -216,7 +216,7 @@
 								'name' => 'rss_title_item',
 								'default' => 'RSS FEED',
  								'desc' => 'Set title in rss'
- 	
+
 							),
 	 						/* array(
 								'type' => 'text',
@@ -224,17 +224,17 @@
 								'name' => 'latest_limit_items',
 								'default' => '20',
 								'desc' => 'Set Maximun shows in latest blog page'
- 
+
 							) */
 
-							
+
 						),
 						'submit' => array(
 							'title' => $this->l('Save'),
 							'class' => 'btn btn-danger'
 						)
 					);
-					
+
 					$this->fields_form[1]['form'] = array(
 						'tinymce' => true,
 						'default' => '',
@@ -273,7 +273,7 @@
 								'required' => false,
 								'class' => 't',
 								'default' => '1',
- 
+
 							),
 							array(
 								'type' => 'text',
@@ -282,7 +282,7 @@
 								'required' => false,
 								'class' => 't',
 								'default' => '2',
- 
+
 							),
 
 							array(
@@ -311,7 +311,7 @@
 								'required' => false,
 								'class' => 't',
 								'default' => '3',
- 
+
 							),
 							array(
 								'type' => 'text',
@@ -320,7 +320,7 @@
 								'required' => false,
 								'class' => 't',
 								'default' => '6',
- 
+
 							),
 
 							array(
@@ -436,13 +436,13 @@
 								'class' => 't',
 								'default' => '1',
 								'values' => $onoff,
-							), 
+							),
 			             ),
 							'submit' => array(
 								'title' => $this->l('Save'),
 								'class' => 'btn btn-danger'
 							)
-			         );   
+			         );
 
 			         $this->fields_form[2]['form'] = array(
 						'tinymce' => true,
@@ -472,7 +472,7 @@
 
 							),
 
-							 
+
 							array(
 								'type' => 'switch',
 								'label' => $this->l('Show Description:'),
@@ -483,7 +483,7 @@
 								'default' => '1',
 								'values' => $onoff,
 							),
-							 
+
 							array(
 								'type' => 'switch',
 								'label' => $this->l('Show Image:'),
@@ -546,17 +546,17 @@
 								'class' => 't',
 								'default' => '1',
 								'values' => $onoff,
-							), 
+							),
 							array(
 								'type' => 'textarea',
 								'label' => $this->l('Social Sharing CODE'),
 								'name' => 'social_code',
 								'required' => false,
-							 
+
 								'default' => '',
 								'desc'	=> 'put sharing social code from sharethis service....to replace current sharing social.'
-								 
-							), 
+
+							),
 
 /*							array(
 								'type' => 'switch',
@@ -567,13 +567,13 @@
 								'default' => '1',
 								'values' => $onoff,
 							),  */
-						
+
 							 array(
 			                    'type' => 'select',
 			                    'label' => $this->l( 'Comment Engine:' ),
 			                    'name' => 'item_comment_engine',
 			                    'id'    => 'item_comment_engine',
-			                     
+
 			                    'options' => array(  'query' => array(
 			                        array('id' => 'local', 'name' => $this->l('Local')),
 			                        array('id' => 'facebook', 'name' => $this->l('Facebook')),
@@ -583,7 +583,7 @@
 			                     'id' => 'id',
 			                    'name' => 'name' ),
 			                    'default' => "local"
-		                	 ),	
+		                	 ),
 							array(
 								'type' => 'text',
 								'label' => $this->l('Limit Local Comment'),
@@ -591,8 +591,8 @@
 								'required' => false,
 								'class' => 't',
 								'default' => '10',
-								 
-							), 
+
+							),
 							array(
 								'type' => 'text',
 								'label' => $this->l('Diquis Account:'),
@@ -600,8 +600,8 @@
 								'required' => false,
 								'class' => 't',
 								'default' => 'demo4leotheme',
-								'desc' => '<a target="_blank" href="https://disqus.com/admin/signup/">'.$this->l( 'Sign Up Diquis' ).'</a>' 
-							), 
+								'desc' => '<a target="_blank" href="https://disqus.com/admin/signup/">'.$this->l( 'Sign Up Diquis' ).'</a>'
+							),
 
 							array(
 								'type' => 'text',
@@ -610,8 +610,8 @@
 								'required' => false,
 								'class' => 't',
 								'default' => '100858303516',
-								'desc' => '<a target="_blank" href="http://developers.facebook.com/docs/reference/plugins/comments/">'.$this->l( 'Register A Comment Box, Then Get Application ID in Script Or Register Facebook Application ID to moderate comments' ).'</a>' 
-							), 
+								'desc' => '<a target="_blank" href="http://developers.facebook.com/docs/reference/plugins/comments/">'.$this->l( 'Register A Comment Box, Then Get Application ID in Script Or Register Facebook Application ID to moderate comments' ).'</a>'
+							),
 							array(
 								'type' => 'text',
 								'label' => $this->l('Facebook Width:'),
@@ -619,15 +619,15 @@
 								'required' => false,
 								'class' => 't',
 								'default' => '600'
-							), 
+							),
 			             ),
 							'submit' => array(
 								'title' => $this->l('Save'),
 								'class' => 'btn btn-danger'
 							)
-			         );   
-			
-			$data = LeoBlogConfig::getConfigValue( 'cfg_global' );	
+			         );
+
+			$data = LeoBlogConfig::getConfigValue( 'cfg_global' );
 			$obj = new stdClass();
 
 			if( $data && $tmp=unserialize($data) ){
@@ -636,14 +636,14 @@
 				}
 			}
 
-			$fields_value = $this->getConfigFieldsValues( $obj  ); 		
+			$fields_value = $this->getConfigFieldsValues( $obj  );
 			$helper = new HelperForm($this);
 			$this->setHelperDisplay($helper);
 			$helper->fields_value = $fields_value;
 			$helper->tpl_vars = $this->tpl_form_vars;
 			!is_null($this->base_tpl_form) ? $helper->base_tpl = $this->base_tpl_form : '';
 			if ($this->tabAccess['view'])
-			{  	
+			{
 				$helper->tpl_vars['show_toolbar'] = false;
 				$helper->tpl_vars['submit_action'] = 'saveConfiguration';
 				if (Tools::getValue('back'))
@@ -658,8 +658,8 @@
 			$template = $this->createTemplate('panel.tpl');
 
 			$comments = LeoBlogComment::getComments( null, 10,  $this->context->language->id );
-			$blogs    = LeoBlogBlog::getListBlogs( null, $this->context->language->id ,   0, 10, 
-			 'hits', 'DESC' );
+			$blogs    = LeoBlogBlog::getListBlogs( null, $this->context->language->id ,   0, 10,
+			 'position', 'DESC' );
 
 
 			$template->assign( array(
@@ -677,25 +677,25 @@
 
 			return $template->fetch();
 		}
-		 
+
 
 		 /**
 	     * Asign value for each input of Data form
 	     */
-	    public function getConfigFieldsValues( $obj ) {      
-	  
+	    public function getConfigFieldsValues( $obj ) {
+
 	        $languages = Language::getLanguages(false);
 	        $fields_values = array();
 
 
-	        foreach(  $this->fields_form as $k=> $f ){ 
+	        foreach(  $this->fields_form as $k=> $f ){
 
 	            foreach( $f['form']['input']  as $j=> $input ){
-	               	
+
                	   if( isset($input['lang']) ) {
                         foreach ( $languages as $lang ){
                         	if( isset($obj->{trim($input['name'])."_".$lang['id_lang']}) ){
-                        		$data = $obj->{trim($input['name'])."_".$lang['id_lang']};  
+                        		$data = $obj->{trim($input['name'])."_".$lang['id_lang']};
                             	$fields_values[$input['name']][$lang['id_lang']] = $data;
                             }else{
                             	$fields_values[$input['name']][$lang['id_lang']] = $input['default'];
@@ -704,21 +704,21 @@
                     }else {
 
 		                if( isset($obj->{trim($input['name'])}) ){
-		                    $data = $obj->{trim($input['name'])};  
-		          
-		                    if( $input['name'] == 'image' &&  $data  ){ 
-		                        $thumb = __PS_BASE_URI__.'modules/'.$this->name.'/img/'. $data;   
-		                        $this->fields_form[$k]['form']['input'][$j]['thumb'] =  $thumb; 
+		                    $data = $obj->{trim($input['name'])};
+
+		                    if( $input['name'] == 'image' &&  $data  ){
+		                        $thumb = __PS_BASE_URI__.'modules/'.$this->name.'/img/'. $data;
+		                        $this->fields_form[$k]['form']['input'][$j]['thumb'] =  $thumb;
 		                    }
 
-		  
-		                    $fields_values[$input['name']] = $data;    
-		                }else{  
+
+		                    $fields_values[$input['name']] = $data;
+		                }else{
 	                        $fields_values[$input['name']] = $input['default'];
-		            		                    
-		                } 
-		            }    
-	            }   
+
+		                }
+		            }
+	            }
 	        }
 
 	        return $fields_values;

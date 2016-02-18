@@ -3,7 +3,8 @@
 *}
 
 <header id="header" class="header-v2">
-    {if $page_name|strpos:'module-leoblog' !== 0}
+    {***if $page_name|strpos:'module-leoblog' !== 0***}
+    {if !isset($isBot) || (isset($isBot) && !$isBot)}
 	<section id="topbar" class="topbar-v2 col-md-12 col-sm-7 col-xs-4">
 		<div class="container clearfix">
             {if $page_name =='index'}

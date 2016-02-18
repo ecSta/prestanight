@@ -199,7 +199,7 @@ class LeoblogblogModuleFrontController extends ModuleFrontController
 				   .'</a><span class="navigation-pipe">'.Configuration::get('PS_NAVIGATION_PIPE').'</span>';
 		$full_path .= '<a href="'.Tools::safeOutput( $category_link ).'">'.htmlentities($category->title, ENT_NOQUOTES, 'UTF-8').'</a><span class="navigation-pipe">'.Configuration::get('PS_NAVIGATION_PIPE').'</span>'.$blog->meta_title;
 
-		$limit = 5;
+		$limit = 50;
 
 		$samecats = LeoBlogBlog::getListBlogs(  $category->id_leoblogcat,
 											     $this->context->language->id , 0,
@@ -216,17 +216,20 @@ class LeoblogblogModuleFrontController extends ModuleFrontController
 
 			$tagrelated = LeoBlogBlog::getListBlogs(  $category->id_leoblogcat,
 												     $this->context->language->id , 0,
-												     $limit, 'date_add', 'DESC', array( 'type'=> 'tag', 'tag'=> $blog->tags ), true
+												     20, 'date_add', 'DESC', array( 'type'=> 'tag', 'tag'=> $blog->tags ), true
 			);
 
-			foreach( $tagrelated as $key => $tblog ){
-				if( $blog->id == $tblog['id_leoblog_blog'] ) {
+			foreach($tagrelated as $key => $tblog) {
+				if($blog->id == $tblog['id_leoblog_blog']) {
 					unset( $tagrelated[$key] );
 					continue;
 				}
-
-				$tblog['link'] = $helper->getBlogLink( $tblog );
-				$tagrelated[$key] = $tblog;
+				// Rewrite title
+				$aTitle              = explode(':', $tblog['meta_title']);
+				$tblog['meta_title'] = ucfirst( trim(isset($aTitle[1]) ? $aTitle[1] : $aTitle[0]) );
+				// Rewrite link
+				$tblog['link']       = $helper->getBlogLink( $tblog );
+				$tagrelated[$key]    = $tblog;
 			}
 		}
 
@@ -286,10 +289,14 @@ class LeoblogblogModuleFrontController extends ModuleFrontController
 			}
 		}
 
+		$aTitle   = explode(':', $blog->meta_title);
+		$newTitle = ucfirst( trim(isset($aTitle[1]) ? $aTitle[1] : $aTitle[0]) );
+
 	    $vars = array(
 			'isBot'            => $isGoogleBot,
 			'tags'             => $tags,
-			'meta_title'       => ucfirst($blog->meta_title),
+			// 'meta_title'       => ucfirst($blog->meta_title),
+			'meta_title'       => $newTitle,
 			'meta_keywords'    => $blog->meta_keywords,
 			'meta_description' => $blog->meta_description,
 			'blog'             => $blog,

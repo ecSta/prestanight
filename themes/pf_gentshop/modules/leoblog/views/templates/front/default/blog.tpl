@@ -9,9 +9,9 @@
 	<div class="inner">
 	{if $is_active}
 		<div class="midContent">
-			<h1 class="blog-title">{$blog->meta_title}</h1>
+			{***<h1 class="blog-title">{$blog->meta_title}</h1>***}
 
-			<div class="blog-meta">
+			{***<div class="blog-meta">
 				{if $config->get('item_show_author','1')}
 				<span class="blog-author">
 					<span class="icon-user"> {l s='Posted By' mod='leoblog'}: </span>
@@ -46,7 +46,7 @@
 					{$blog->hits}
 				</span>
 				{/if}
-			</div>
+			</div>***}
 
 			{if $blog->preview_url && $config->get('item_show_image','1')}
 			<div class="blog-image">
@@ -54,11 +54,11 @@
 			</div>
 			{/if}
 
-			{if $config->get('item_show_description',1)}
+			{***if $config->get('item_show_description',1)}
 			<div class="blog-description">
 				{$blog->description}
 			</div>
-			{/if}
+			{/if***}
 
 			<div class="blog-content">{$blog->content}</div>
 
@@ -83,7 +83,7 @@
 			{/if*}
 		</div>
 
-		{if !empty($samecats)||!empty($tagrelated)}
+		{if !empty($tagrelated)}
 		<div class="extra-blogs clearfix">
 			{if !empty($samecats)}
 			<div class="midContent">

@@ -17,7 +17,8 @@ class LeoBlogBlog extends ObjectModel
 	public $meta_description;
 	public $meta_keywords;
 	public $content;
-	public $description; 
+	public $description;
+	public $classification;
 	public $video_code;
 	public $image = '';
 	public $link_rewrite;
@@ -37,31 +38,31 @@ class LeoBlogBlog extends ObjectModel
 	 * @see ObjectModel::$definition
 	 */
 	public static $definition = array(
-		'table' => 'leoblog_blog',
-		'primary' => 'id_leoblog_blog',
+		'table'     => 'leoblog_blog',
+		'primary'   => 'id_leoblog_blog',
 		'multilang' => true,
-		'fields' => array(
-			'id_leoblogcat' => 	array('type' => self::TYPE_INT, 'validate' => 'isUnsignedInt'),
-			'image' => array('type' => self::TYPE_STRING, 'validate' => 'isCatalogName'),
-			'position' => 			array('type' => self::TYPE_INT),
-			'id_employee' => 			array('type' => self::TYPE_INT),
-			'indexation' =>     	array('type' => self::TYPE_BOOL),
-			'active' => 			array('type' => self::TYPE_BOOL),
-			'image' => 			array('type' => self::TYPE_STRING,'lang' => false,),
-			'hits' => 			array('type' => self::TYPE_INT ),
-		 	'date_add' => array('type' => self::TYPE_DATE, 'validate' => 'isDate'),
-            'date_upd' => array('type' => self::TYPE_DATE, 'validate' => 'isDate'),
-            'video_code' => array('type' => self::TYPE_HTML,   'validate' => 'isString','required' => false),
-            // Lang fields
+		'fields'    => array(
+			'id_leoblogcat'  => array('type' => self::TYPE_INT, 'validate' => 'isUnsignedInt'),
+			'image'          => array('type' => self::TYPE_STRING, 'validate' => 'isCatalogName'),
+			'position'       => array('type' => self::TYPE_INT),
+			'classification' => array('type' => self::TYPE_STRING, 'lang' => false, 'required' => true, 'size' => 50),
+			'id_employee'    => array('type' => self::TYPE_INT),
+			'indexation'     => array('type' => self::TYPE_BOOL),
+			'active'         => array('type' => self::TYPE_BOOL),
+			'image'          => array('type' => self::TYPE_STRING,'lang' => false,),
+			'hits'           => array('type' => self::TYPE_INT ),
+			'date_add'       => array('type' => self::TYPE_DATE, 'validate' => 'isDate'),
+			'date_upd'       => array('type' => self::TYPE_DATE, 'validate' => 'isDate'),
+			'video_code'     => array('type' => self::TYPE_HTML,   'validate' => 'isString','required' => false),
 			// Lang fields
-			'meta_description' => 	array('type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isGenericName', 'size' => 255),
-			'meta_keywords' => 		array('type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isGenericName', 'size' => 255),
-			'tags' => 		array('type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isGenericName', 'size' => 255),
+			'meta_description' => array('type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isGenericName', 'size' => 255),
+			'meta_keywords'    => array('type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isGenericName', 'size' => 255),
+			'tags'             => array('type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isGenericName', 'size' => 255),
 
-			'meta_title' =>			array('type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isGenericName', 'required' => true, 'size' => 128),
-			'link_rewrite' => 		array('type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isLinkRewrite', 'required' => true, 'size' => 128),
-			'content' => 			array('type' => self::TYPE_HTML, 'lang' => true, 'validate' => 'isCleanHtml', 'size' => 3999999999999),
-			'description' => 			array('type' => self::TYPE_HTML, 'lang' => true, 'validate' => 'isCleanHtml', 'size' => 3999999999999),
+			'meta_title'   => array('type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isGenericName', 'required' => true, 'size' => 128),
+			'link_rewrite' => array('type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isLinkRewrite', 'required' => true, 'size' => 128),
+			'content'      => array('type' => self::TYPE_HTML, 'lang' => true, 'validate' => 'isCleanHtml', 'size' => 3999999999999),
+			'description'  => array('type' => self::TYPE_HTML, 'lang' => true, 'validate' => 'isCleanHtml', 'size' => 3999999999999),
 		),
 	);
 
@@ -69,10 +70,10 @@ class LeoBlogBlog extends ObjectModel
 		'objectNodeName' => 'content',
 		'objectsNodeName' => 'content_management_system',
 	);
-        
+
     public function add($autodate = true, $null_values = false) {
             $this->position = self::getLastPosition((int)$this->id_leoblogcat);
-            
+
             $context = Context::getContext();
             $id_shop = $context->shop->id;
             $res = parent::add($autodate, $null_values);
@@ -86,14 +87,14 @@ class LeoBlogBlog extends ObjectModel
 
 	/**
 	 *
-	 */ 
+	 */
 	public function update($null_values = false)
 	{
 		if (parent::update($null_values))
 			return $this->cleanPositions($this->id_leoblogcat);
 		return false;
 	}
-        
+
         /*
         * only support some field
         */
@@ -106,16 +107,16 @@ class LeoBlogBlog extends ObjectModel
                      $sql .= ",";
                  }
             }
-            
+
             $sql .= " WHERE `id_leoblog_blog`=".$id;
             return Db::getInstance()->execute($sql);
         }
 
 	/**
 	 *
-	 */ 
+	 */
 	public function delete()
-	{       
+	{
                 //delete comment
                 $resultComment  =  Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS('SELECT `id_comment` as id FROM `' . _DB_PREFIX_ . 'leoblog_comment` WHERE `id_leoblog_blog` = ' . (int)$this->id . '');
                 foreach($resultComment as $value){
@@ -129,24 +130,24 @@ class LeoBlogBlog extends ObjectModel
 
 	/**
 	 *
-	 */ 
-	public static function getListBlogs( $id_category=null, $id_lang, $page_number = 0, $nb_products = 10, 
-		$order_by=null, $order_way = null,   $condition=array(), $is_active=false, $id_shop = null ){
+	 */
+	public static function getListBlogs( $id_category=null, $id_lang, $page_number = 0, $nb_products = 10,
+		$order_by = null, $order_way = null,   $condition=array(), $is_active=false, $id_shop = null ) {
                 if(!$id_shop){
                     $context = Context::getContext();
                     $id_shop = $context->shop->id;
                 }
-                
+
 		if (empty($id_lang))
 			$id_lang = (int)Configuration::get('PS_LANG_DEFAULT');
 
-		
+
 		if ($page_number < 1) $page_number = 1;
 
 		if ($nb_products < 1) $nb_products = 10;
 		if (empty($order_by) || $order_by == 'position') $order_by = 'date_add';
 		if (empty($order_way)) $order_way = 'DESC';
-		if ($order_by == 'id_leoblog_blog' || $order_by == 'date_add'  || $order_by == 'date_upd')
+		if ($order_by == 'id_leoblog_blog' || $order_by == 'date_add' || $order_by == 'date_upd'|| $order_by == 'classification')
 			$order_by_prefix = 'c';
 		else if ($order_by == 'title')
 			$order_by_prefix = 'c';
@@ -172,27 +173,27 @@ class LeoBlogBlog extends ObjectModel
 				case 'author':
 					 $where .= ' AND id_employee='.(int)$condition['id_employee'];
 					break;
-				
+
 				case 'tag':
 						$tmp = explode( ",", $condition['tag'] );
 
- 
-						if( !empty($tmp) && count($tmp) > 1 ) {  
+
+						if( !empty($tmp) && count($tmp) > 1 ) {
 							foreach( $tmp as $tag ){
 								$t[] = 'l.tags LIKE "%'.pSQL( trim($tag) ).'%"';
-								
+
 							}
-							$where .= ' AND  '.implode(" OR ", $t ).' ';	
+							$where .= ' AND  '.implode(" OR ", $t ).' ';
 						}else {
 					 	   $where .= ' AND l.tags LIKE "%'.pSQL($condition['tag']).'%"';
-						} 
+						}
 						break;
 				case 'samecat':
-						$where .= ' AND c.id_leoblog_blog!='.$condition['id_leoblog_blog'];		  
-					break; 
+						$where .= ' AND c.id_leoblog_blog!='.$condition['id_leoblog_blog'];
+					break;
 			}
 		}
-		
+
 		if( $is_active ){
 			$where .= ' AND c.active=1';
 		}
@@ -210,10 +211,9 @@ class LeoBlogBlog extends ObjectModel
 
 		$query .= 'ORDER BY '.(isset($order_by_prefix) ? pSQL($order_by_prefix).'.' : '').pSQL($order_by).' '.pSQL($order_way)
 			   . ' LIMIT '.(int)(($page_number-1) * $nb_products).', '.(int)$nb_products;
-		
-		//echo $query;die;
+
 		$data = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS( $query );
- 		
+
 		return $data;
 	}
 
@@ -237,24 +237,24 @@ class LeoBlogBlog extends ObjectModel
 				case 'author':
 					 $where .= ' AND id_employee='.(int)$condition['id_employee'];
 					break;
-				
+
 				case 'tag':
 						$tmp = explode( ",", $condition['tag'] );
 
- 
-						if( !empty($tmp) && count($tmp) > 1 ) {  
+
+						if( !empty($tmp) && count($tmp) > 1 ) {
 							foreach( $tmp as $tag ){
 								$t[] = 'l.tags LIKE "%'.pSQL( trim($tag) ).'%"';
-								
+
 							}
-							$where .= ' AND  '.implode(" OR ", $t ).' ';	
+							$where .= ' AND  '.implode(" OR ", $t ).' ';
 						}else {
 					 	   $where .= ' AND l.tags LIKE "%'.pSQL($condition['tag']).'%"';
-						} 
+						}
 						break;
 				case 'samecat':
-						$where .= ' AND c.id_leoblog_blog!='.$condition['id_leoblog_blog'];		  
-					break; 
+						$where .= ' AND c.id_leoblog_blog!='.$condition['id_leoblog_blog'];
+					break;
 			}
 		}
 		$query = '
@@ -272,17 +272,17 @@ class LeoBlogBlog extends ObjectModel
 
 		 $data = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS( $query );
 
- 
+
 		 return count($data);
 	}
-	
+
 	public static function listblog($id_lang = null, $id_block = false, $active = true, $id_shop = null)
 	{
                 if(!$id_shop){
                     $context = Context::getContext();
                     $id_shop = $context->shop->id;
                 }
-                
+
 		if (empty($id_lang))
 			$id_lang = (int)Configuration::get('PS_LANG_DEFAULT');
 
@@ -364,7 +364,7 @@ class LeoBlogBlog extends ObjectModel
 	}
 
 	public static function getblogPages($id_lang = null, $id_leoblogcat = null, $active = true, $id_shop = null)
-	{	
+	{
 		$sql = new DbQuery();
 		$sql->select('*');
 		$sql->from('blog', 'c');
@@ -372,7 +372,7 @@ class LeoBlogBlog extends ObjectModel
 			$sql->innerJoin('blog_lang', 'l', 'c.id_leoblog_blog = l.id_leoblog_blog AND l.id_lang = '.(int)$id_lang);
 
 		if ($id_shop)
-			$sql->innerJoin('blog_shop', 'cs', 'c.id_leoblog_blog = cs.id_leoblog_blog AND cs.id_shop = '.(int)$id_shop); 
+			$sql->innerJoin('blog_shop', 'cs', 'c.id_leoblog_blog = cs.id_leoblog_blog AND cs.id_shop = '.(int)$id_shop);
 
 		if ($active)
 			$sql->where('c.active = 1');
