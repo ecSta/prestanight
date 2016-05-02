@@ -36,15 +36,16 @@ $(document).ready( function(){
 	});
 	*/
 
-	$('.sideBlockLinks ul').each(function (u, ul) {
+	$('.sideBlockLinks ul, .extra-blogs ul').each(function (u, ul) {
 		var ul = $(this);
-		if( ul.children().length > 4 ) {
+		if( ul.children().length > 7 ) {
 			// Fix height && Hide extra links
 			ul.css({
-				maxHeight: 'calc((1em + 10px) * 7)',
+				// maxHeight: 'calc((1em + 10px) * 7)',
+				maxHeight: '340px',
 				overflowY:  'auto',
 				overflowX:  'hidden'
-			}).children(':gt(3)').hide();
+			}).children(':gt(6)').hide();
 			// Add 'view more' link
 			$('<li />', {
 				class: 'sideBlockExpander',
@@ -59,10 +60,10 @@ $(document).ready( function(){
 		}
 	});
 
-	$('.sideBlockLinks').on('click', '.sideBlockExpand', function (e) {
+	$('.sideBlockLinks, .extra-blogs').on('click', '.sideBlockExpand', function (e) {
 		e.preventDefault();
-		$(this).parent().siblings(':gt(3)').toggle('fast');
-		$(this).text('Voir moins ..');
+		$(this).parent().siblings(':gt(6)').toggle('fast');
+		$(this).text( $(this).is('.sideBlockCollapse') ? 'Voir plus ..' : 'Voir moins ..' );
 		$(this).toggleClass('sideBlockCollapse');
 	});
 });
