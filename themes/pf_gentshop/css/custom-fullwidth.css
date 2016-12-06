@@ -13,6 +13,7 @@
 .p20 { padding: 0 20px }
 .mh2 { margin: 2em 0 }
 .mb0 { margin-bottom: 0 !important }
+.pointer { cursor: pointer !important }
 .text-lg { font-size: 1.1em }
 .uppercase { text-transform: uppercase }
 
@@ -140,6 +141,12 @@ hr {
 
 /* product.tpl */
 #product .product-info { margin-left: 1%; margin-right: 1% }
+#product .product-info .tab-nav ul li a { background-color: #F7F7F7 }
+#product .product-info .tab-nav ul li.active a { background-color: #FFF; border-top: 1px solid #E5E5E5 !important }
+#product .product-info .tab-nav ul li.active:first-child a { border-left: 1px solid #E5E5E5 !important }
+#product .product-info .tab-nav ul li.active:last-child a { border-right: 1px solid #E5E5E5 !important }
+#product .product-info .tab-nav ul li:hover a { background-color: #EEE }
+#product .product-info .tab-nav ul li.active:hover a { background-color: #FFF }
 .pb-left-column .product-image-block, .pb-left-column #views_block { padding: 0 30px 0 0 }
 #thumbs_list { height: 108px; padding: 0 }
 #thumbs_list li { width: 110px; float: left }
@@ -291,6 +298,7 @@ label[for="cgv"], label[for="agreeMetre"] { display: inline-block; padding-left:
 /* Contact */
 .form-group.form-ok input, .form-group.form-ok textarea { background: 0 none }
 .form-control { color: #2C2C2C }
+#contactForm_hotline .panel-heading span { font-size: 1.7em }
 
 /* Footer */
 #pts-footer-top { background-color: #F1F1F1; overflow: hidden }
@@ -382,7 +390,7 @@ label[for="cgv"], label[for="agreeMetre"] { display: inline-block; padding-left:
  * MODULE
  */
 /* ptsslideshow */
-#pts-slideshow li .caption h3 { font-size: inherit; font-weight: inherit; line-height: inherit; margin: inherit }
+.bannercontainer.banner-fullwidth li .caption h3 { font-size: inherit; font-weight: inherit; line-height: inherit; margin: inherit }
 
 /* ptsBlockManufacturer */
 .ptsblockmanufacturer {

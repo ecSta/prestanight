@@ -75,6 +75,17 @@
     {/if}
 
 	<form action="{$request_uri}" method="post" class="contact-form-box" enctype="multipart/form-data">
+        <div id="contactForm_hotline" class="panel panel-default">
+            <div class="panel-heading">
+                <i class="icon-phone icon-fw icon-2x"></i>
+                <span class="text-2x">+33 (0)4 22 13 20 83</span>
+            </div>
+
+            <div class="panel-body">
+                <p>{l s='Get in touch with our conceptors from monday to friday, 10am to 6pm'}.</p>
+            </div>
+        </div>
+
 		<fieldset>
         <h3 class="page-subheading">{l s='send a message'}</h3>
         <div class="clearfix row">

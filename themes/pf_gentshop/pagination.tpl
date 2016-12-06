@@ -53,7 +53,7 @@
 	{/if}
 	<!-- Pagination -->
 	<div id="pagination{if isset($paginationId)}_{$paginationId}{/if}" class="pagination clearfix">
-	    {if $nb_products > $products_per_page && $start!=$stop}
+	    {if $nb_products > $products_per_page && $start != $stop && $nb_products < ($products_per_page*4)}
 			<form class="showall" action="{if !is_array($requestNb)}{$requestNb}{else}{$requestNb.requestUrl}{/if}" method="get">
 				<div>
 					{if isset($search_query) AND $search_query}
@@ -117,10 +117,20 @@
 							<span>1</span>
 						</a>
 					</li>
-					<li class="truncate">
-						<span>
-							<span>...</span>
-						</span>
+					<li class="truncate dropdown pull-left pointer">
+						<!-- <span> -->
+							<!-- <span>...</span> -->
+							<!-- <div class="dropdown"> -->
+								<span class="dropdown-toggle" type="button" id="dropdownPaginationFirst" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+									... <span class="caret"></span>
+								</span>
+								<ul class="dropdown-menu" aria-labelledby="dropdownPaginationFirst">
+								{for $midPages=2 to $start-1}
+									<li class="pull-left"><a {$no_follow_text} href="{$link->goPage($requestPage, $midPages)}">{$midPages|intval}</a></li>
+								{/for}
+								</ul>
+							<!-- </div> -->
+						<!-- </span> -->
 					</li>
 				{/if}
 				{section name=pagination start=$start loop=$stop+1 step=1}
@@ -139,10 +149,21 @@
 					{/if}
 				{/section}
 				{if $pages_nb>$stop+2}
-					<li class="truncate">
-						<span>
-							<span>...</span>
-						</span>
+					<!-- <li class="truncate"> -->
+					<li class="truncate dropdown pull-left pointer">
+						<!-- <span> -->
+							<!-- <span>...</span> -->
+							<!-- <div class="dropdown"> -->
+								<span class="dropdown-toggle" type="button" id="dropdownPaginationLast" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+									... <span class="caret"></span>
+								</span>
+								<ul class="dropdown-menu" aria-labelledby="dropdownPaginationLast">
+								{for $midPages=$stop+1 to $pages_nb-1}
+									<li class="pull-left"><a {$no_follow_text} href="{$link->goPage($requestPage, $midPages)}">{$midPages|intval}</a></li>
+								{/for}
+								</ul>
+							<!-- </div> -->
+						<!-- </span> -->
 					</li>
 					<li>
 						<a href="{$link->goPage($requestPage, $pages_nb)}">

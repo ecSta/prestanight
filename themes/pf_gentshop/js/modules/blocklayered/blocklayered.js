@@ -262,6 +262,13 @@ function initLayered()
 
 function paginationButton(nbProductsIn, nbProductOut)
 {
+	/**
+	 * ABU : disable JS pagination ... better reload page & avoid fail ajax loadings
+	 */
+	return;
+
+
+
 	if (typeof(current_friendly_url) === 'undefined')
 		current_friendly_url = '#';
 
@@ -276,7 +283,7 @@ function paginationButton(nbProductsIn, nbProductOut)
 		$(this).attr('href', location + current_friendly_url.replace(/\/page-(\d+)/, '') + '/page-' + page);
 	});
 
-	$('div.pagination li').not('.current, .disabled').each(function () {
+	$('div.pagination .pagination > li').not('.current, .disabled, .truncate').each(function () {
 		var nbPage = 0;
 		if ($(this).hasClass('pagination_next'))
 			nbPage = parseInt($('div.pagination li.current').children().children().html())+ 1;
