@@ -265,7 +265,7 @@ function paginationButton(nbProductsIn, nbProductOut)
 	/**
 	 * ABU : disable JS pagination ... better reload page & avoid fail ajax loadings
 	 */
-	return;
+	// return;
 
 
 
@@ -522,29 +522,24 @@ function reloadContent(params_plus)
 			if ($.browser.msie) // Fix bug with IE8 and aliasing
 				$('.product_list').css('filter', '');
 
-			if (result.pagination.search(/[^\s]/) >= 0)
-			{
+			// pagination_bottom
+			if (result.pagination.search(/[^\s]/) >= 0) {
 				var pagination = $('<div/>').html(result.pagination)
 				var pagination_bottom = $('<div/>').html(result.pagination_bottom);
 
-				if ($('<div/>').html(pagination).find('#pagination').length)
-				{
+				if ($('<div/>').html(pagination).find('#pagination').length) {
 					$('#pagination').show();
 					$('#pagination').replaceWith(pagination.find('#pagination'));
 				}
-				else
-					$('#pagination').hide();
+				else $('#pagination').hide();
 
-				if ($('<div/>').html(pagination_bottom).find('#pagination_bottom').length)
-				{
+				if ($('<div/>').html(pagination_bottom).find('#pagination_bottom').length) {
 					$('#pagination_bottom').show();
 					$('#pagination_bottom').replaceWith(pagination_bottom.find('#pagination_bottom'));
 				}
-				else
-					$('#pagination_bottom').hide();
+				else $('#pagination_bottom').hide();
 			}
-			else
-			{
+			else {
 				$('#pagination').hide();
 				$('#pagination_bottom').hide();
 			}
