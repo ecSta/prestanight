@@ -421,6 +421,12 @@
 							</div>
 
 							<div class="action no-print">
+								<div class="buttons_bottom_block no-print">
+									<a id="serviceInstallBtn" class="btn" href="{$link->getCMSLink(11)}" target="_blank" rel="nofollow" style="display:none;">
+										<i class="icon-wrench icon-left"></i>Service installation
+									</a>
+								</div>
+
 								{if isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS}{$HOOK_PRODUCT_ACTIONS}{/if}
 							</div>
 
@@ -652,6 +658,12 @@
 						<!--<h3 class="page-product-heading">{l s='Data sheet'}</h3> -->
 						<table class="table-data-sheet">
 							{foreach from=$features item=feature}
+								{if $feature.name == 'service_installation'}
+									<script type="text/javascript">
+										$('#serviceInstallBtn').show();
+									</script>
+									{continue}
+								{/if}
 							<tr class="{cycle values="odd,even"}">
 								{if isset($feature.value)}
 								<td>{$feature.name|escape:'html':'UTF-8'}</td>

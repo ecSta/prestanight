@@ -2,22 +2,22 @@
  * Web Application Prefix Apply For Making Owner Styles
  */
 /**
- *   Blocks Layout Selectors 
+ *   Blocks Layout Selectors
  */
 /**
  * Product Item Selectors
  */
 /***********************************************************************/
 /**
-* Transition-timing-function property@mixin 
+* Transition-timing-function property@mixin
 */
 /*background RGBA
 ============================================*/
 /****/
 /* RIGHT TO LEFT */
 /** CHECKOUT BY STEP */
-/*  
- * LAYOUT VARIABLES 
+/*
+ * LAYOUT VARIABLES
  */
 /* product desc */
 /* primary_block ***************************************************************************** */
@@ -386,7 +386,6 @@
   .box-info-product .action > div {
     margin-left: 0;
     text-align: center;
-    border-top: 1px solid #E5E5E5;
     padding-top: 0; }
     .box-info-product .action > div a {
       width: 100%;
