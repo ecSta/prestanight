@@ -374,7 +374,7 @@
 															{/foreach}
 														</ul>
 														<input type="hidden" class="color_pick_hidden" name="{$groupName|escape:'html':'UTF-8'}" value="{$default_colorpicker|intval}" />
-													{elseif ($group.group_type == 'radio')}
+													{elseif ($group.group_type == 'radio' || $group.group_type == 'threshold')}
 														{*ABU: ptits switch sympa*}
 														{if $group.attributes|@count < 4}
 															<div class="switch">

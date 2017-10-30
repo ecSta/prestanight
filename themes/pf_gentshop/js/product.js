@@ -414,6 +414,46 @@ function addCombination(idCombination, arrayOfIdAttributes, quantity, price, eco
 	combinations.push(combination);
 }
 
+/**
+ * ABU
+ * Get combination of currently selected attributes that require assembly
+ *
+ * @TODO add a flag on every attribute to filter those which require assembly
+ */
+var ignoredGroups = ['129'];
+function findCombinationForAssembly() {
+	var regex = /\d+/g;
+	var radio_inputs = parseInt($('#attributes .checked > input[type=radio]').length);
+	if(radio_inputs) {
+		radio_inputs = '#attributes .checked > input[type=radio]';
+	} else {
+		radio_inputs = '#attributes input[type=radio]:checked';
+	}
+
+	var choice = [];
+	$('#attributes select, #attributes input[type=hidden], '+ radio_inputs).each(function() {
+		if( $.inArray($(this).attr('name').match(regex)[0], ignoredGroups) != -1 ) {
+			choice.push(parseInt( $(this).siblings('input').addBack().eq(0).val() ));
+		} else {
+			choice.push(parseInt($(this).val()));
+		}
+	});
+
+	//testing every combination to find the conbination's attributes' case of the user
+	for(var combination = 0; combination < combinations.length; ++combination) {
+		//verify if this combinaison is the same that the user's choice
+		var combinationMatchForm = true;
+		$.each(combinations[combination]['idsAttributes'], function(key, value) {
+			if(!in_array(parseInt(value), choice))
+				combinationMatchForm = false;
+		});
+		if(combinationMatchForm) {
+			return combinations[combination];
+		}
+	}
+	return null;
+}
+
 // search the combinations' case of attributes and update displaying of availability, prices, ecotax, and image
 function findCombination()
 {
