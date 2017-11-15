@@ -45,6 +45,7 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <link rel="icon" type="image/vnd.microsoft.icon" href="{$favicon_url}?{$img_update_time}" />
         <link rel="shortcut icon" type="image/x-icon" href="{$favicon_url}?{$img_update_time}" />
+        <meta name="p:domain_verify" content="be8860f775b032d01eeb82ecf5c802ca"/>
 {if isset($css_files)}
     {foreach from=$css_files key=css_uri item=media}
         {if preg_match("#global#",$css_uri)}

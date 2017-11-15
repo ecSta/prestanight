@@ -2,22 +2,22 @@
  * Web Application Prefix Apply For Making Owner Styles
  */
 /**
- *   Blocks Layout Selectors 
+ *   Blocks Layout Selectors
  */
 /**
  * Product Item Selectors
  */
 /***********************************************************************/
 /**
-* Transition-timing-function property@mixin 
+* Transition-timing-function property@mixin
 */
 /*background RGBA
 ============================================*/
 /****/
 /* RIGHT TO LEFT */
 /** CHECKOUT BY STEP */
-/*  
- * LAYOUT VARIABLES 
+/*
+ * LAYOUT VARIABLES
  */
 .ptsstaticontent_bottom {
   background: transparent;
@@ -153,8 +153,8 @@
       text-decoration: none;
       font-size: 16px;
       border: 3px double #777777;
-      -webkit-transition: all 0.35s;
-      transition: all 0.35s;
+      -webkit-transition: background 0.35s;
+      transition: background 0.35s;
       -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
       transform: rotate(45deg); }
@@ -171,6 +171,11 @@
         font-size: 16px; }
       .staticontent-item .social a:hover i, .staticontent-item .social a:hover em {
         color: #FFFFFF; }
+      .staticontent-item .social a:hover {
+        border-color: transparent;
+        border-style: none;
+        padding: 3px;
+      }
       .staticontent-item .social a:hover.facebook {
         background-color: #346da6; }
       .staticontent-item .social a:hover.twitter {
@@ -181,6 +186,13 @@
         background-color: #c9242d; }
       .staticontent-item .social a:hover.pinterest {
         background-color: #fb9e3a; }
+      .staticontent-item .social a:hover.instagram {
+        background: -webkit-gradient(circle at 80% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+        background: -webkit-radial-gradient(circle at 80% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+        background: -moz-radial-gradient(circle at 80% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+        background: -o-radial-gradient(circle at 80% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+        background: radial-gradient(circle at 80% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+      }
 
 #footer .staticontent-item {
   margin-top: -3px; }

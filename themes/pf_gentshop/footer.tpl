@@ -84,6 +84,7 @@
 										<a target="_blank" class="facebook" title="" href="https://www.facebook.com/so.nuit.fr" data-toggle="tooltip" data-placement="top" data-original-title="Facebook"> <em class="icon-facebook">&nbsp;</em></a>
 										<a target="_blank" class="pinterest" title="" href="https://fr.pinterest.com/sonuit" data-toggle="tooltip" data-placement="top" data-original-title="Pinterest"> <em class="icon-pinterest">&nbsp;</em></a>
 										<a target="_blank" class="google-plus" title="" href="https://plus.google.com/109631770212013358875" data-toggle="tooltip" data-placement="top" data-original-title="Google-plus"><em class="icon-google-plus">&nbsp;</em></a>
+										<a target="_blank" class="instagram" title="" href="https://www.instagram.com/sonuit_officiel" data-toggle="tooltip" data-placement="top" data-original-title="Instagram"> <em class="icon-instagram">&nbsp;</em></a>
 										<a target="_blank" class="rss" title="" href="http://sonuit.fr/modules/feeder/rss.php" data-toggle="tooltip" data-placement="top" data-original-title="Rss"> <em class="icon-rss">&nbsp;</em></a>
 									</p>
 								</div>
