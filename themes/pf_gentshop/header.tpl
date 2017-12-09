@@ -150,7 +150,7 @@
                         <div class="relative">
                             <a alt="{$cat.name}" href="{$link->getCategoryLink($cat.id_category, null)|escape:'html':'UTF-8'}" title="{$cat.name}">
                                 <div class="block_content text-center">
-                                    <img class="img-responsive" alt="{$cat.name}" src="{$img_dir}img_categories/so-{$cat.id_category}.jpg" />
+                                    <img class="img-responsive" alt="{$cat.name}" src="{$link->getCatImageLink($cat.link_rewrite, $cat.id_category, 'category_default')|escape:'html':'UTF-8'}" />
                                 </div>
                             </a>
                         </div>
@@ -159,7 +159,7 @@
             </section>
 
             {* Text including wtf is SoNuit *}
-            <section id="abu_what_is_so_nuit" class="row">
+            <section id="abu_what_is_so_nuit">
                 <div class="well">
                     <div class="container text-center">
                         <h1>SONUIT : lit, chambre  et mobilier d’interieur personnalisable</h1><hr />

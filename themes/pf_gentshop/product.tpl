@@ -77,8 +77,7 @@
 									<img class="img-responsive" width="100%" itemprop="image" src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default')|escape:'html':'UTF-8'}" title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}"/>
 								</a>
 							{else}
-								<!-- <img id="bigpic" class="img-responsive" itemprop="image" src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'thickbox_default')|escape:'html':'UTF-8'}" title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" /> -->
-								<img id="bigpic" class="img-responsive" itemprop="image" src="{$link->getImageLink($product->link_rewrite, $cover.id_image, '')|escape:'html':'UTF-8'}" title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" />
+								<img id="bigpic" class="img-responsive" itemprop="image" src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'thickbox_default')|escape:'html':'UTF-8'}" title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" />
 								{if !$content_only}
 									<!-- <span class="span_link no-print">{l s='View larger'}</span> -->
 									<a class="span_link no-print fancybox" data-fancybox-group="other-views" href="{$link->getImageLink($product->link_rewrite, $cover.id_image, '')|escape:'html':'UTF-8'}">{l s='View larger'}</a>
@@ -164,7 +163,7 @@
 					<span class="editable" itemprop="sku">{if !isset($groups)}{$product->reference|escape:'html':'UTF-8'}{/if}</span>
 				</p>
 
-				{*	 edit: osef du statut*}
+				{**ABU: ballec du statut**}
 				{*if !$product->is_virtual && $product->condition}
 				<p id="product_condition">
 					<label>{l s='Condition:'} </label>
@@ -295,7 +294,7 @@
 								{assign var='productCarrier' value=$product->getCarriers()}
 								{if count($productCarrier) > 0 && ($productCarrier[0].is_free == '1' || $productCarrier[0].position == 0) }
 								<div id="product_freeDelivery">
-									<label><span class="uppercase">{l s='Free delivery!'}<span>{if $productCarrier[0].position == 0}&nbsp;<sup class="text-primary text-lg" data-tooltip title="{l s='Without islands and towns in altitude'}">*</sup>{/if}</label>
+									<label><span class="uppercase">{l s='Free delivery!'}<span>{if $productCarrier[0].position == 0}&nbsp;<sup class="text-primary text-lg" data-toggle="tooltip" title="{l s='Without islands and towns in altitude'}">*</sup>{/if}</label>
 								</div>
 								{/if}
 

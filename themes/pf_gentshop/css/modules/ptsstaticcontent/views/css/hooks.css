@@ -176,22 +176,17 @@
         border-style: none;
         padding: 3px;
       }
-      .staticontent-item .social a:hover.facebook {
-        background-color: #346da6; }
-      .staticontent-item .social a:hover.twitter {
-        background-color: #4c91d7; }
-      .staticontent-item .social a:hover.rss {
-        background-color: #f05423; }
-      .staticontent-item .social a:hover.google-plus {
-        background-color: #c9242d; }
-      .staticontent-item .social a:hover.pinterest {
-        background-color: #fb9e3a; }
-      .staticontent-item .social a:hover.instagram {
-        background: -webkit-gradient(circle at 80% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
-        background: -webkit-radial-gradient(circle at 80% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
-        background: -moz-radial-gradient(circle at 80% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
-        background: -o-radial-gradient(circle at 80% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
-        background: radial-gradient(circle at 80% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+      .staticontent-item .social a.facebook:hover { background-color: #346DA6; }
+      .staticontent-item .social a.twitter:hover { background-color: #4C91D7; }
+      .staticontent-item .social a.rss:hover { background-color: #F05423; }
+      .staticontent-item .social a.google-plus:hover { background-color: #FB9E3A; }
+      .staticontent-item .social a.pinterest:hover { background-color: #BD081C; }
+      .staticontent-item .social a.instagram:hover {
+        background: -webkit-gradient(circle at 80% 107%, #FDF497 0%, #FDF497 5%, #FD5949 45%,#D6249F 60%,#285AEB 90%);
+        background: -webkit-radial-gradient(circle at 80% 107%, #FDF497 0%, #FDF497 5%, #FD5949 45%,#D6249F 60%,#285AEB 90%);
+        background: -moz-radial-gradient(circle at 80% 107%, #FDF497 0%, #FDF497 5%, #FD5949 45%,#D6249F 60%,#285AEB 90%);
+        background: -o-radial-gradient(circle at 80% 107%, #FDF497 0%, #FDF497 5%, #FD5949 45%,#D6249F 60%,#285AEB 90%);
+        background: radial-gradient(circle at 80% 107%, #FDF497 0%, #FDF497 5%, #FD5949 45%,#D6249F 60%,#285AEB 90%);
       }
 
 #footer .staticontent-item {

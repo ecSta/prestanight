@@ -126,7 +126,6 @@ hr {
 #abu_categories .relative:hover { padding: 0; margin: -2px -4px 0 }
 #content { min-height: 0 }
 @media (min-width: 600px) {
-#abu_categories { max-height: 210px }
   .row.abu-5-col > .cols { width: 20% }
   .row.abu-5-col > .cols {
       min-height: 1px;
