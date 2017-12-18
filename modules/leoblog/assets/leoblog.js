@@ -42,7 +42,7 @@ $(document).ready( function(){
 			// Fix height && Hide extra links
 			ul.css({
 				// maxHeight: 'calc((1em + 10px) * 7)',
-				maxHeight: '340px',
+				maxHeight: $('.sideBlockLinks').css('position') == 'relative' ? 'auto' : '340px',
 				overflowY:  'auto',
 				overflowX:  'hidden'
 			}).children(':gt(6)').hide();

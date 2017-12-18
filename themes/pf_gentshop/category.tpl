@@ -38,7 +38,8 @@
             {/if}
         </h1>
 
-        <div class="categories clearfix">
+        {** ABU : don't want to see this **}
+        {*<div class="categories clearfix">
         	{if $scenes || $category->id_image}
             <div class="inner">
                 <div class="content_scene_cat">
@@ -48,13 +49,13 @@
                             {include file="$tpl_dir./scenes.tpl" scenes=$scenes}
                             {if $category->description}
                                 <div class="cat_desc rte">
-                                {*if Tools::strlen($category->description) > 350}
+                                {if Tools::strlen($category->description) > 350}
                                     <div id="category_description_short">{$description_short}</div>
                                     <div id="category_description_full" class="unvisible">{$category->description}</div>
                                     <a href="{$link->getCategoryLink($category->id_category, $category.link_rewrite)|escape:'html':'UTF-8'}" class="lnk_more">{l s='More'}</a>
-                                {else*}
+                                {else}
                                     <div>{$category->description}</div>
-                                {*/if*}
+                                {/if}
                                 </div>
                             {/if}
                             </div>
@@ -67,7 +68,9 @@
                 </div>
             </div>
             {/if}
-        </div>
+        </div>*}
+
+
         <div class="category-info">
             {if $category->description}
                <div class="cat_desc relative">
