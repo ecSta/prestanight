@@ -61,11 +61,12 @@ function resizeCatimg()
 jQuery(document).ready(function($) {
 	$('.category-info .cat_desc .displayMore').on('click', function (e) {
 		var catDiv = $(this).siblings('.rte'),
+			wrapper = $(this).siblings('.rte').find('.descWrapper'),
 			that = $(this);
 		that.toggleClass('open');
-		catDiv.css('max-height', that.is('.open') ? '500px' : that.data('height'));
+		catDiv.css('max-height', that.is('.open') ? parseInt(wrapper.height() + 20) +'px' : that.data('height'));
 		setTimeout(function() {
 			that.children('i').toggleClass('icon-chevron-down icon-chevron-up');
-		}, 1000);
-	}).data('height', $('.category-info .cat_desc .rte').height() + 'px');
+		}, 500);
+	}).data('height', $('.category-info .cat_desc .rte').height() +'px');
 });

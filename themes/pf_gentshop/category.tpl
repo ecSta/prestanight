@@ -78,7 +78,9 @@
                        <div id="category_description_short">{$description_short}</div>
                        <div id="category_description_full" style="display:none">{$category->description}</div>
                    {else*}
-                       <h2 class="rte">{$category->description}</h2>
+                       <h2 class="rte">
+                            <div class="descWrapper">{$category->description}</div>
+                        </h2>
                    {*/if*}
                    <div class="displayMore"><i class="icon icon-chevron-down"></i></div>
                </div>
