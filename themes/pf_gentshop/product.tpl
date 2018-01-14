@@ -528,6 +528,19 @@
 			<!--end Download -->
 			{/if}
 
+			{*** ABU : display CallToActtion only for few manufacturers [Glicerio, Lagrama, Moretti] ***}
+			{*** animation made in CSS ***}
+			{if $product->id_manufacturer|in_array:[1, 11, 17]}
+				<div class="ctaLeft">
+					<a href="/nous-contacter?surmesure=1&id_contact=2" target="_self">
+						<div class="ctaTxtWrapper">{l s='Request your custom 3D project'}</div>
+						<div class="ctaImgWrapper">
+							<img class="img-responsive tilting" src="{$img_dir}logoNoeudOnly.png" />
+						</div>
+					</a>
+				</div>
+			{/if}
+
 			{if isset($product) && $product->customizable}
 			<!--Customization -->
 			<section class="page-product-box no-print">
