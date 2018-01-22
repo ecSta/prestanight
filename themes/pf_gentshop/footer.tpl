@@ -108,7 +108,7 @@
 						<div class="row">
 							<div id="pts-copyright" class="copyright">
 								<div class="row">
-									<div class="col-md-8 col-xs-12">
+									<div class="col-md-8 col-xs-6">
 										{if isset($COPYRIGHT)&&$COPYRIGHT}
 										<div class="copyright">{$COPYRIGHT}</div>
 										{else}
@@ -121,7 +121,7 @@
 									</div>
 
 									{if $page_name|strpos:'module-leoblog' !== 0}
-									<div class="col-md-4 col-xs-12">
+									<div class="col-md-4 col-xs-6">
 										<ul id="payment_logos">
 											<li class="col-xs-3 greyLayout"><a href="https://payzen.eu/paiement-securise" title="PayZen, 100% sécurisé" target="_blank"><img class="img-responsive" src="{$img_dir}paylogo_payzen_securise.png" alt="PayZen, 100% sécurisé" /></a></li>
 											<li class="col-xs-3 greyLayout"><a href="{$link->getCMSLink(5, NULL)}"><img class="img-responsive" src="{$img_dir}paylogo_verified_by_visa.png" alt="Verified by VISA" /></a></li>

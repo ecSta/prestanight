@@ -139,7 +139,7 @@
             {/if}
 
             {if $page_name =='index'}
-            <section  id="pts-slideshow" class="slideshow hidden-xs">
+            <section  id="pts-slideshow" class="slideshow">
                 {hook h="displayslideshow"}
             </section>
 

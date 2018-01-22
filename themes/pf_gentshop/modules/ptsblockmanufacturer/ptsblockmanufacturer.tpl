@@ -46,7 +46,7 @@
 
 						{foreach from=$ptsmanufacterer item=ptsmanufacturers name=manufLoop}
 							<div class="row row-{$smarty.foreach.manufLoop.index}">
-								{if $smarty.foreach.manufLoop.index == $manuRows && ($manuRest%2) != 0}<div class="col-xs-12 col-xs-offset-{$manuf_page-$manuRest}">{/if}
+								{if $smarty.foreach.manufLoop.index == $manuRows && ($manuRest%2) != 0}<div class="col-xs-12 col-sm-offset-{$manuf_page-$manuRest}">{/if}
 								{foreach from=$ptsmanufacturers item=manuf name=ptsmanufacturer}
 									<div class="col-xs-6 col-sm-4 col-md-2{if $smarty.foreach.manufLoop.index == $manuRows && ($manuRest%2) == 0 && $smarty.foreach.ptsmanufacturer.index == 0} col-md-offset-{$manuf_page-$manuRest}{/if}">
 										<h5 class="block_manuf clearfix" data-toggle="tooltip" data-placement="top" title="{$manuf.name}">
