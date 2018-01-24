@@ -25,7 +25,7 @@
 
 <!-- Block myaccount module -->
 <div class="footer-block block col-xs-12 col-sm-4 col-md-2 col-lg-2">
-	<h4 class="title_block">{l s='My account' mod='blockmyaccountfooter'}</h4>
+	<div class="title_block">{l s='My account' mod='blockmyaccountfooter'}</div>
 		<ul class="list-block toggle-footer list-group">
 			<li><a href="{$link->getPageLink('history', true)|escape:'html':'UTF-8'}" title="{l s='My orders' mod='blockmyaccountfooter'}" rel="nofollow">{l s='My orders' mod='blockmyaccountfooter'}</a></li>
 			{if $returnAllowed}<li><a href="{$link->getPageLink('order-follow', true)|escape:'html':'UTF-8'}" title="{l s='My merchandise returns' mod='blockmyaccountfooter'}" rel="nofollow">{l s='My merchandise returns' mod='blockmyaccountfooter'}</a></li>{/if}

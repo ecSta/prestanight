@@ -66,43 +66,9 @@
 	<!-- /Block CMS module -->
 {else}
 	<!-- MODULE Block footer -->
-	<!--<section class="footer-block block col-lg-4 col-md-4 col-sm-4 col-xs-12" id="block_various_links_footer">
-		<h4 class="title_block">{l s='Extras' mod='blockcms'}</h4>
-		<ul class="toggle-footer list-group list">
-
-			{if $show_price_drop && !$PS_CATALOG_MODE}
-				<li class="first_item">
-					<a href="{$link->getPageLink('prices-drop')|escape:'html':'UTF-8'}" title="{l s='Specials' mod='blockcms'}">
-						{l s='Specials' mod='blockcms'}
-					</a>
-				</li>
-			{/if}
-			{if $show_new_products}
-			<li class="item">
-				<a href="{$link->getPageLink('new-products')|escape:'html':'UTF-8'}" title="{l s='New products' mod='blockcms'}">
-					{l s='New products' mod='blockcms'}
-				</a>
-			</li>
-			{/if}
-			{if $show_best_sales && !$PS_CATALOG_MODE}
-				<li class="item">
-					<a href="{$link->getPageLink('best-sales')|escape:'html':'UTF-8'}" title="{l s='Top sellers' mod='blockcms'}">
-						{l s='Top sellers' mod='blockcms'}
-					</a>
-				</li>
-			{/if}
-			<li>
-	            <a href="{$link->getPageLink('manufacturer')|escape:'html':'UTF-8'}" title="{l s='View a list of manufacturers'}">
-	                {l s='Manufacturers' mod='blockcms'}
-	            </a>
-	        </li>
-		</ul>
-		{$footer_text}
-	</section> -->
-
 
 	<div class="footer-block block block_various_links col-lg-3 col-md-3 col-sm-4 col-xs-12">
-		<h4 class="title_block">{l s='Customer Service' mod='blockcms'}</h4>
+		<div class="title_block">{l s='Customer Service' mod='blockcms'}</div>
 		<ul class="toggle-footer list-group list-block">
 
 			{if $display_stores_footer}
@@ -135,7 +101,7 @@
 	</div>
 
 	<div class="footer-block block block_various_links col-lg-3 col-md-3 col-sm-4 col-xs-12">
-		<h4 class="title_block">{l s='Information' mod='blockcms'}</h4>
+		<div class="title_block">{l s='Information' mod='blockcms'}</div>
 		<ul class="toggle-footer list-group list">
 			{foreach from=$cmslinks item=cmslink}
 				{if $cmslink.meta_title != ''}

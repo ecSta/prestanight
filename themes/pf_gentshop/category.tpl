@@ -70,51 +70,50 @@
             {/if}
         </div>*}
 
-
         <div class="category-info">
             {if $category->description}
                <div class="cat_desc relative">
-                   {*if strlen($category->description) > 350}
-                       <div id="category_description_short">{$description_short}</div>
-                       <div id="category_description_full" style="display:none">{$category->description}</div>
-                   {else*}
-                       <h2 class="rte">
-                            <div class="descWrapper">{$category->description}</div>
-                        </h2>
-                   {*/if*}
+                   <div class="rte shrinker">
+                        <div class="descWrapper">{$description_intro}</div>
+                    </div>
                    <div class="displayMore"><i class="icon icon-chevron-down"></i></div>
                </div>
            {/if}
         </div>
 
         {if isset($subcategories)}
-        <!-- Subcategories -->
-        <div id="subcategories">
-            <h6 class="subcategory-heading">{l s='Subcategories'}</h6>
-            <ul class="links clearfix ">
-            {foreach from=$subcategories item=subcategory}
-                <li>
-                    <a class="subcategory-name" href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}"><h3>{$subcategory.name|strip_tags|truncate:25:'...'|escape:'html':'UTF-8'|truncate:350}</h3></a>
-                </li>
-            {/foreach}
-            </ul>
-        </div>
+            <!-- Subcategories -->
+            <div id="subcategories">
+                <h6 class="subcategory-heading">{l s='Subcategories'}</h6>
+                <ul class="links clearfix ">
+                {foreach from=$subcategories item=subcategory}
+                    <li>
+                        <a class="subcategory-name" href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}"><h3>{$subcategory.name|strip_tags|truncate:25:'...'|escape:'html':'UTF-8'|truncate:350}</h3></a>
+                    </li>
+                {/foreach}
+                </ul>
+            </div>
         {/if}
 
         {if $products}
-        <div class="content_sortPagiBar product-filter clearfix">
-            <div class="row">
-                <div class="sortPagiBar col-lg-9 col-md-8 col-sm-8 col-xs-7">
-                    {include file="./product-sort.tpl"}
-                </div>
-                <div class="hidden-xs hidden-sm hidden-md hidden-lg">{include file="./nbr-product-page.tpl"}</div>
-                <div class="top-pagination-content col-lg-3 col-md-4 col-sm-4 col-xs-5">{include file="./product-compare.tpl"}</div>
+            <div class="content_sortPagiBar product-filter clearfix">
+                <div class="row">
+                    <div class="sortPagiBar col-lg-9 col-md-8 col-sm-8 col-xs-7">
+                        {include file="./product-sort.tpl"}
+                    </div>
+                    <div class="hidden-xs hidden-sm hidden-md hidden-lg">{include file="./nbr-product-page.tpl"}</div>
+                    <div class="top-pagination-content col-lg-3 col-md-4 col-sm-4 col-xs-5">{include file="./product-compare.tpl"}</div>
                 </div>
             </div>
-
             {include file="./product-list.tpl" products=$products}
-
-            <div class="bottom-pagination-content col-xs-12 col-sm-12 content_sortPagiBar clearfix">{include file="./pagination.tpl" paginationId='bottom'}</div>
+            <div class="row">
+                <div class="bottom-pagination-content col-xs-12 col-sm-12 content_sortPagiBar clearfix">{include file="./pagination.tpl" paginationId='bottom'}</div>
+            </div>
+            {if !empty($description_outro)}
+                <div class="cat_desc row">
+                    <div class="rte">{$description_outro}</div>
+                </div>
+            {/if}
         {else}
             <div class="productList_empty row text-center unselectable">{l s='Coming soon'}</div>
         {/if}

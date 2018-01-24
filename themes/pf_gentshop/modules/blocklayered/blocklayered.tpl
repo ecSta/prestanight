@@ -26,7 +26,7 @@
 <!-- Block layered navigation module -->
 {if $nbr_filterBlocks != 0}
 <div id="layered_block_left" class="block">
-	<h4 class="title_block">{l s='Catalog' mod='blocklayered'}</h4>
+	<div class="title_block">{l s='Catalog' mod='blocklayered'}</div>
 	<div class="block_content">
 		<form action="#" id="layered_form">
 			<div>

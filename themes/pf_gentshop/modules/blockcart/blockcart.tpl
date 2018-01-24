@@ -32,7 +32,7 @@
 			<div class="mini-cart cart-inner media-body">
 				<a href="{$link->getPageLink($order_process, true)|escape:'html':'UTF-8'}" title="{l s='View my shopping cart' mod='blockcart'}" rel="nofollow">
 					<i class="cart-icon"></i>
-					<h4 class="title-cart hidden-xs">{l s='Shopping Cart' mod='blockcart'}</h4>
+					<span class="title-cart hidden-xs menu-title">{l s='Shopping Cart' mod='blockcart'}</span>
 					<span>(</span>
 					<span class="ajax_cart_no_product{if $cart_qties > 0} unvisible{/if}">{l s='0' mod='blockcart'}</span>
 					<span class="ajax_cart_quantity{if $cart_qties == 0} unvisible{/if}">{$cart_qties}</span>

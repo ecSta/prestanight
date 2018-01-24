@@ -285,7 +285,7 @@ hr {
 
 /* Product-list */
 .category-info { margin: 15px }
-.category-info h2.rte { font-size: 1.07em;
+.category-info .shrinker.rte { font-size: 1.07em;
     line-height: 1.5em;
     margin: 0;
     max-height: calc(2em * 3);
@@ -310,7 +310,11 @@ hr {
     top: calc(100% - 30px);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 );
 }
-.category-info h2.rte a { color: treal; text-decoration: underline }
+.category-info .shrinker.rte a { color: treal; text-decoration: underline }
+#content > .cat_desc.row {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
 #subcategories h3 { font-size: inherit; margin: 0; display: inline; }
 .page-product-box .product-container, .product-block { padding: 0 5px }
 .product-block .image { outline: 0 none }
