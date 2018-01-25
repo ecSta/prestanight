@@ -24,7 +24,7 @@
 *}
 {include file="$tpl_dir./errors.tpl"}
 {if isset($category)}
-	{if $category->id AND $category->active}
+    {if $category->id AND $category->active}
 
         <h1 class="page-heading{if (isset($subcategories) && !$products) || (isset($subcategories) && $products) || !isset($subcategories) && $products} product-listing{/if}">{$category->name|escape:'html':'UTF-8'}{if isset($categoryNameComplement)}&nbsp;{$categoryNameComplement|escape:'html':'UTF-8'}{/if}
             {include file="$tpl_dir./category-count.tpl"}
@@ -40,11 +40,11 @@
 
         {** ABU : don't want to see this **}
         {*<div class="categories clearfix">
-        	{if $scenes || $category->id_image}
+            {if $scenes || $category->id_image}
             <div class="inner">
                 <div class="content_scene_cat">
-                	 {if $scenes}
-                     	<div class="content_scene">
+                     {if $scenes}
+                        <div class="content_scene">
                             <!-- Scenes -->
                             {include file="$tpl_dir./scenes.tpl" scenes=$scenes}
                             {if $category->description}
@@ -72,13 +72,20 @@
 
         <div class="category-info">
             {if $category->description}
-               <div class="cat_desc relative">
-                   <div class="rte shrinker">
-                        <div class="descWrapper">{$description_intro}</div>
+                {if empty($description_outro)}
+                   <div class="cat_desc relative">
+                       <div class="rte shrinker">
+                            <div class="descWrapper">{$description_intro}</div>
+                        </div>
+                       <div class="displayMore"><i class="icon icon-chevron-down"></i></div>
+                   </div>
+                {else}
+                    <div class="cat_desc row">
+                        <div class="rte">{$description_intro}</div>
                     </div>
-                   <div class="displayMore"><i class="icon icon-chevron-down"></i></div>
-               </div>
-           {/if}
+                    <hr />
+                {/if}
+            {/if}
         </div>
 
         {if isset($subcategories)}
@@ -118,6 +125,6 @@
             <div class="productList_empty row text-center unselectable">{l s='Coming soon'}</div>
         {/if}
     {elseif $category->id}
-		<p class="alert alert-warning">{l s='This category is currently unavailable.'}</p>
-	{/if}
+        <p class="alert alert-warning">{l s='This category is currently unavailable.'}</p>
+    {/if}
 {/if}

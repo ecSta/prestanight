@@ -310,6 +310,7 @@ hr {
     top: calc(100% - 30px);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 );
 }
+.category-info .rte a:hover img { outline: 1px solid #77BEB6; }
 .category-info .shrinker.rte a { color: treal; text-decoration: underline }
 #content > .cat_desc.row {
   margin-bottom: 15px;
@@ -463,8 +464,10 @@ label[for="cgv"], label[for="agreeMetre"] { display: inline-block; padding-left:
     border-collapse: separate;
     border-spacing: 1em 0.5em;
 }
+.cat_desc .rte a,
 #blogpage .blog-content li > a,
 #blogpage .blog-content p > a { border-bottom: 1px dashed #77BEB6; color: #00817F }
+.cat_desc .rte a:hover,
 #blogpage .blog-content li > a:hover,
 #blogpage .blog-content p > a:hover { color: #77BEB6 }
 @media (min-width: 990px) {
