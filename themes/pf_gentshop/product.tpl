@@ -153,10 +153,6 @@
 		<div class="pd-content col-xs-12 col-sm-12 col-md-3 col-lg-3">
 			<div class="row">
 			<div class="pb-center-column col-xs-12 col-md-12">
-				{if $product->online_only}
-					<p class="online_only">{l s='Online only'}</p>
-				{/if}
-
 				<h1 itemprop="name">{$product->name|escape:'html':'UTF-8'}</h1>
 				<p id="product_reference"{if empty($product->reference) || !$product->reference} style="display: none;"{/if}>
 					<label>{l s='Reference:'} </label>

@@ -98,11 +98,6 @@
 
 
 					<div class="product-flags">
-						{if (!$PS_CATALOG_MODE AND ((isset($product.show_price) && $product.show_price) || (isset($product.available_for_order) && $product.available_for_order)))}
-							{if isset($product.online_only) && $product.online_only}
-								<span class="online_only">{l s='Online only'}</span>
-							{/if}
-						{/if}
 						{if isset($product.on_sale) && $product.on_sale && isset($product.show_price) && $product.show_price && !$PS_CATALOG_MODE}
 							{elseif isset($product.reduction) && $product.reduction && isset($product.show_price) && $product.show_price && !$PS_CATALOG_MODE}
 								<span class="discount">{l s='Reduced price!'}</span>

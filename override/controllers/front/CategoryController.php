@@ -25,7 +25,7 @@ class CategoryController extends CategoryControllerCore
 			'category' => $this->category,
 			// 'description_short' => Tools::truncateString($this->category->description, 350),
 			'description_intro' => $aDescription[0],
-			'description_outro' => $aDescription[1],
+			'description_outro' => count($aDescription) > 1 ? $aDescription[1] : [],
 			'products' => (isset($this->cat_products) && $this->cat_products) ? $this->cat_products : null,
 			'id_category' => (int)$this->category->id,
 			'id_category_parent' => (int)$this->category->id_parent,
