@@ -55,3 +55,6 @@
 {addJsDef comparator_max_item=$comparator_max_item}
 {addJsDef comparedProductsIds=$compared_products}
 {/strip}
+
+{*** ABU pinterest save button : https://developers.pinterest.com/docs/widgets/save ***}
+<script async defer src="//assets.pinterest.com/js/pinit.js"></script>

@@ -310,8 +310,8 @@ hr {
     top: calc(100% - 30px);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 );
 }
-.category-info .rte a:hover img { outline: 1px solid #77BEB6; }
-.category-info .shrinker.rte a { color: treal; text-decoration: underline }
+.cat_desc .rte a:hover img, .category-info .rte a:hover img { outline: 1px solid #77BEB6; }
+.category-info .shrinker.rte a { color: teal }
 #content > .cat_desc.row {
   margin-bottom: 15px;
   padding-bottom: 15px;
