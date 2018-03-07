@@ -74,7 +74,9 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
+        <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
+
     <body{if isset($page_name)} id="{$page_name|escape:'html':'UTF-8'}"{/if} class="keep-header {if isset($page_name)}{$page_name|escape:'html':'UTF-8'}{/if}{if isset($body_classes) && $body_classes|@count} {implode value=$body_classes separator=' '}{/if}{if $hide_left_column} hide-left-column{/if}{if $hide_right_column} hide-right-column{/if}{if isset($content_only) && $content_only} content_only{/if} lang_{$lang_iso} layout-{$DEFAUTL_LAYOUT}" itemscope="" itemtype="http://schema.org/WebPage" >
     {if !isset($content_only) || !$content_only}
         {if isset($restricted_country_mode) && $restricted_country_mode}
@@ -163,7 +165,7 @@
                 <div class="well">
                     <div class="container text-center">
                         <h1>SONUIT : lit, chambre  et mobilier d’interieur personnalisable</h1><hr />
-                        <p>Avec SONUIT, créez l’intérieur qui vous ressemble, aux couleurs et aux dimensions qui mettrons en valeur votre foyer.</p>
+                        <p>Avec SONUIT, créez l’intérieur qui vous ressemble, aux couleurs et aux dimensions qui metteront en valeur votre foyer.</p>
                         <h4>Vous trouverez du mobilier de chambre pour toute la famille : lit, lit evolutif, lit mezzanine, lit superposé, lit gigogne, armoire, bureau, chambre sur mesure, bibliothèque et dressing sur mesure, tapis, fauteuil, luminaire et autres accessoires d’intérieur.</h4>
                         <br />Venez découvrir notre collection de mobilier personnalisable.<br /><h4>Choisissez les couleurs et dimensions de votre lit, les tissus de votre fauteuil, les accessoires de votre dressing sur mesure, la finition de votre armoire, l’agencement de la chambre de votre enfant. Créez LA pièce originale et unique.</h4><br />
                         <p>Vitaminez votre intérieur en quelques clics…<br />Sur sonuit.fr, on profite pleinement des services de conception, des conseils en agencement, des astuces gain de place, des couleurs pétillantes, des lignes épurées, ainsi que des tendances émergentes… De quoi en séduire plus d’un!</p>

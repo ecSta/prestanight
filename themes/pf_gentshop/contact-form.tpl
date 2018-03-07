@@ -176,11 +176,14 @@
                 </div>
             </div>
         </div>
+        <div class="g-recaptcha" data-sitekey="6LcLKkoUAAAAADyyzD0XEPuWNtvliqHY1gv_hz7m" data-callback="v"></div>
         <div class="submit">
-            <button type="submit" name="submitMessage" id="submitMessage" class="btn btn-outline-default"><span>{l s='Send'}</span></button>
+            <button type="submit" name="submitMessage" id="submitMessage" class="btn btn-outline-default" disabled="disabled"><span>{l s='Send'}</span></button>
 		</div>
 	</fieldset>
 </form>
+
+<script type="text/javascript">var v = function(response) { $('#submitMessage').prop('disabled',false);};</script>
 {/if}
 {addJsDefL name='contact_fileDefaultHtml'}{l s='No file selected' js=1}{/addJsDefL}
 {addJsDefL name='contact_fileButtonHtml'}{l s='Choose File' js=1}{/addJsDefL}
