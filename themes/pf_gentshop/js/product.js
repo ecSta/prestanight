@@ -135,14 +135,12 @@ $(document).ready(function()
 	// Scroll down content to view the product image
 	setTimeout(function() {
 		$('html, body').animate({ scrollTop:180 }, 500);
-		$('#view_full_size').css({
-			height: function() { return ($(window).height() - 195) + 'px'; },
-			maxHeight: function() { return ($(window).height() - 195) + 'px'; }
-		});
-
-		// $('#bigpic').css({
-		// 	height: function() { return (bigpicNormalHeight > ($(window).height() - 195) ? ($(window).height() - 195) : bigpicNormalHeight) + 'px'; }
-		// });
+		if($(window).width() >= 992) {
+			$('#view_full_size').css({
+				height: function() { return ($(window).height() - 195) + 'px'; },
+				maxHeight: function() { return ($(window).height() - 195) + 'px'; }
+			});
+		}
 	}, 500);
 
 

@@ -90,7 +90,7 @@
 
         {if isset($subcategories)}
             <!-- Subcategories -->
-            <div id="subcategories">
+            <div id="subcategories" class="visible-lg visible-md">
                 <h6 class="subcategory-heading">{l s='Subcategories'}</h6>
                 <ul class="links clearfix ">
                 {foreach from=$subcategories item=subcategory}
@@ -109,7 +109,7 @@
                         {include file="./product-sort.tpl"}
                     </div>
                     <div class="hidden-xs hidden-sm hidden-md hidden-lg">{include file="./nbr-product-page.tpl"}</div>
-                    <div class="top-pagination-content col-lg-3 col-md-4 col-sm-4 col-xs-5">{include file="./product-compare.tpl"}</div>
+                    <div class="top-pagination-content col-lg-3 col-md-4 hidden-sm hidden-xs">{include file="./product-compare.tpl"}</div>
                 </div>
             </div>
             {include file="./product-list.tpl" products=$products}
@@ -118,7 +118,7 @@
             </div>
             {if !empty($description_outro)}
                 <div class="cat_desc row">
-                    <div class="rte">{$description_outro}</div>
+                    <div class="rte category-info">{$description_outro}</div>
                 </div>
             {/if}
         {else}
@@ -127,4 +127,24 @@
     {elseif $category->id}
         <p class="alert alert-warning">{l s='This category is currently unavailable.'}</p>
     {/if}
+{/if}
+
+{if $category->id == 32}
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@type":    "Product",
+        "name":     "Lit superposé et lit jumeaux GLICERIO",
+        "image":    [
+            "https://www.sonuit.fr/17099-thickbox_default/lits-superposes-enfants-personnalisable-f217-glicerio.jpg",
+            "https://www.sonuit.fr/7419-thickbox_default/lit-superpose-avec-rangement-personnalisable-f259-glicerio.jpg"
+        ],
+        "description":     "des lits superposés qui permettent d’optimiser la place, lit empilable ou décalé avec rangement",
+        "aggregateRating": {
+            "@type":       "AggregateRating",
+            "ratingValue": "4.6",
+            "reviewCount": "89"
+        }
+    }
+</script>
 {/if}

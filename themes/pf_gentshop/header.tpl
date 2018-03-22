@@ -144,7 +144,7 @@
             </section>
 
             {* Categories' image + link to *}
-            <section id="abu_categories" class="row abu-5-col">
+            <section id="abu_categories" class="row abu-5-col hidden-xs">
                 {foreach from=$cats item=cat name=categories}
                     <div class="cols col-xs-12">
                         <div class="relative">
@@ -210,7 +210,7 @@
                 <div class="container main-content">
                     <div class="row">
                     {if isset($left_column_size) && !empty($left_column_size)}
-                        <div id="left_column" class="sidebar column col-xs-12 col-sm-12 col-md-{$left_column_size|intval} col-lg-{$left_column_size|intval} offcanvas-sidebar">
+                        <div id="left_column" class="sidebar column hidden-sm hidden-xs col-md-{$left_column_size|intval} col-lg-{$left_column_size|intval} offcanvas-sidebar">
                             <div class="sidebar-content">
                                 {$HOOK_LEFT_COLUMN}
                             </div>

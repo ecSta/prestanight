@@ -27,7 +27,7 @@
 <div class="block-search">
 	<div class="btn-group search-focus">
 		<div class="dropdown-toggle btn-theme-normal">
-			<span class="text-label title">{l s='SEARCH' mod='blocksearch'}</span>
+			<span class="text-label title hidden-xs">{l s='SEARCH' mod='blocksearch'}</span>
 		</div>
 	</div>
 	<div style="" id="search_block_top" class="inner nav-search visible">
