@@ -127,11 +127,13 @@
 					</td>
 				</tr>
 				<!-- PRODUCTS -->
+				{assign var="tot_products_wt" value="0"}
 				{foreach $order_details as $order_detail}
 				{cycle values='#FFF,#DDD' assign=bgcolor}
 				<tr style="line-height:6px;background-color:{$bgcolor};">
 					<td style="text-align: left; width: {if !$tax_excluded_display}35%{else}45%{/if}">{$order_detail.product_name}{if isset($order_detail.product_reference) && !empty($order_detail.product_reference)} ({l s='Reference:' pdf='true'} {$order_detail.product_reference}){/if}</td>
 					<!-- unit price tax excluded is mandatory -->
+					{assign var=tot_products_wt value=$tot_products_wt+{math equation="x * y" x=$order_detail.unit_price_tax_excl y=$order_detail.product_quantity}}
 					{if !$tax_excluded_display}
 						<td style="text-align: right; width: 20%; white-space: nowrap;">
 						{displayPrice currency=$order->id_currency price=$order_detail.unit_price_tax_excl}
@@ -216,7 +218,7 @@
 				{if (($order_invoice->total_paid_tax_incl - $order_invoice->total_paid_tax_excl) > 0)}
 				<tr style="line-height:5px;">
 					<td style="width: 83%; text-align: right; font-weight: bold">{l s='Product Total (Tax Excl.)' pdf='true'}</td>
-					<td style="width: 17%; text-align: right;">{displayPrice currency=$order->id_currency price=$order_invoice->total_products}</td>
+					<td style="width: 17%; text-align: right;">{displayPrice currency=$order->id_currency price=$tot_products_wt}</td>
 				</tr>
 
 				<tr style="line-height:5px;">
@@ -228,6 +230,17 @@
 					<td style="width: 83%; text-align: right; font-weight: bold">{l s='Product Total' pdf='true'}</td>
 					<td style="width: 17%; text-align: right;">{displayPrice currency=$order->id_currency price=$order_invoice->total_products}</td>
 				</tr>
+				{/if}
+
+				{if !empty($ecotax_tax_breakdown)}
+					{foreach $ecotax_tax_breakdown as $ecotax_tax_infos}
+						{if $ecotax_tax_infos.ecotax_tax_excl > 0}
+						<tr style="line-height:5px;">
+							<td style="text-align: right; font-weight: bold">dont {l s='Ecotax' pdf='true'}</td>
+							<td style="width: 17%; text-align: right;">{if isset($is_order_slip) && $is_order_slip}- {/if}{displayPrice currency=$order->id_currency price=($ecotax_tax_infos.ecotax_tax_incl)}</td>
+						</tr>
+						{/if}
+					{/foreach}
 				{/if}
 
 				{if $order_invoice->total_wrapping_tax_incl > 0}
@@ -261,13 +274,6 @@
 				</tr>
 				{/if}
 
-				{if ($order_invoice->total_paid_tax_incl - $order_invoice->total_paid_tax_excl) > 0}
-				<tr style="line-height:5px;">
-					<td style="text-align: right; font-weight: bold">{l s='Total Tax' pdf='true'}</td>
-					<td style="width: 17%; text-align: right;">{displayPrice currency=$order->id_currency price=($order_invoice->total_paid_tax_incl - $order_invoice->total_paid_tax_excl)}</td>
-				</tr>
-				{/if}
-
 				<tr style="line-height:5px;">
 					<td style="text-align: right; font-weight: bold">{l s='Total' pdf='true'}</td>
 					<td style="width: 17%; text-align: right;">{displayPrice currency=$order->id_currency price=$order_invoice->total_paid_tax_incl}</td>
@@ -281,8 +287,6 @@
 <!-- / PRODUCTS TAB -->
 
 <div style="line-height: 1pt">&nbsp;</div>
-
-{$tax_tab}
 
 {if isset($order_invoice->note) && $order_invoice->note}
 <div style="line-height: 1pt">&nbsp;</div>
