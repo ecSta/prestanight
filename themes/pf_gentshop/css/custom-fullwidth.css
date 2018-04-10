@@ -556,7 +556,7 @@ label[for="cgv"], label[for="agreeMetre"] { display: inline-block; padding-left:
   .bannercontainer.banner-fullwidth .tparrows { transform: scale(.7); -webkit-transform: scale(.7); }
 }
 @media (max-width: 767px) {
-  .bannercontainer.banner-fullwidth .tparrows { transform: scale(.7); -webkit-transform: scale(.5); }
+  .bannercontainer.banner-fullwidth .tparrows { display: none; }
 }
 
 /* ptsBlockManufacturer */

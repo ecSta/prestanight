@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /* * ****************************************************
  *  Leo Prestashop SliderShow for Prestashop 1.6.x
@@ -88,7 +88,7 @@ class LeoSliderLayer extends Module {
 
         $this->displayName = $this->l('Leo Slider Layer for your homepage.');
         $this->description = $this->l('Adds image or text slider to your homepage.');
-        
+
         $this->themeName = Context::getContext()->shop->getTheme();
         $this->img_path = _PS_ALL_THEMES_DIR_.$this->themeName.'/img/modules/'.$this->name.'/';
         $this->img_url = __PS_BASE_URI__ . 'themes/'.$this->themeName.'/img/modules/'.$this->name.'/';
@@ -116,10 +116,10 @@ class LeoSliderLayer extends Module {
             'displayFooterBottom'
 
         );
-        
+
         foreach( $hookspos as $hook ){
             if( Hook::getIdByName($hook) ){
-                
+
             } else {
                 $new_hook = new Hook();
                 $new_hook->name = pSQL($hook);
@@ -127,7 +127,7 @@ class LeoSliderLayer extends Module {
                 $new_hook->add();
                 $id_hook = $new_hook->id;
             }
-        } 
+        }
         // Prepare tab
         $tab = new Tab();
         $tab->active = 1;
@@ -137,10 +137,10 @@ class LeoSliderLayer extends Module {
                 $tab->name[$lang['id_lang']] = 'LeoSliderLayer';
         $tab->id_parent = -1;
         $tab->module = $this->name;
-        
+
         /* Adds Module */
-        if ($tab->add() && parent::install() && $this->registerHook('displaySlideshow') && $this->registerHook('displayHome') 
-			&& $this->registerHook('displayTop') && $this->registerHook('displayTopColumn') && $this->registerHook('actionShopDataDuplication') && $this->registerHook('header') 
+        if ($tab->add() && parent::install() && $this->registerHook('displaySlideshow') && $this->registerHook('displayHome')
+			&& $this->registerHook('displayTop') && $this->registerHook('displayTopColumn') && $this->registerHook('actionShopDataDuplication') && $this->registerHook('header')
 			&& Configuration::updateValue('LEOSLIDERLAYER_GROUP_DE', '1')) {
             $res = true;
             /* Sets up configuration */
@@ -172,7 +172,7 @@ class LeoSliderLayer extends Module {
         $group->active = 1;
         $group->params = 'a:29:{s:9:"auto_play";s:1:"1";s:5:"delay";s:4:"9000";s:9:"fullwidth";s:0:"";s:8:"md_width";s:2:"12";s:8:"sm_width";s:2:"12";s:8:"xs_width";s:2:"12";s:12:"touch_mobile";s:1:"1";s:13:"stop_on_hover";s:1:"1";s:12:"shuffle_mode";s:1:"1";s:11:"shadow_type";s:1:"2";s:14:"show_time_line";s:1:"1";s:18:"time_line_position";s:3:"top";s:6:"margin";s:12:"0px 0px 18px";s:7:"padding";s:7:"5px 5px";s:16:"background_color";s:7:"#d9d9d9";s:16:"background_image";s:1:"0";s:14:"background_url";s:0:"";s:11:"group_class";s:0:"";s:14:"navigator_type";s:4:"none";s:16:"navigator_arrows";s:16:"verticalcentered";s:16:"navigation_style";s:5:"round";s:14:"show_navigator";s:1:"0";s:20:"hide_navigator_after";s:3:"200";s:14:"image_cropping";s:1:"0";s:5:"width";s:3:"960";s:6:"height";s:3:"350";s:15:"thumbnail_width";s:3:"100";s:16:"thumbnail_height";s:2:"50";s:16:"thumbnail_amount";s:1:"5";}';
         $group->add();
-        
+
         //sample for slider
         $languages = Language::getLanguages(false);
         for ($i = 1; $i <= 2; ++$i)
@@ -208,7 +208,7 @@ class LeoSliderLayer extends Module {
                 $tab = new Tab($id_tab);
                 $tab->delete();
         }
-                
+
         /* Deletes Module */
         if (parent::uninstall()) {
             /* Deletes tables */
@@ -227,7 +227,7 @@ class LeoSliderLayer extends Module {
         $res = (bool) Db::getInstance()->execute('
             CREATE TABLE IF NOT EXISTS `' . _DB_PREFIX_ . $this->name . '_groups` (
                 `id_' . $this->name . '_groups` int(10) unsigned NOT NULL AUTO_INCREMENT,
-                                `title` varchar(255) NOT NULL,    
+                                `title` varchar(255) NOT NULL,
                 `id_shop` int(10) unsigned NOT NULL,
                                 `hook` varchar(64) NOT NULL,
                                 `active` tinyint(1) unsigned NOT NULL DEFAULT \'1\',
@@ -266,11 +266,11 @@ class LeoSliderLayer extends Module {
         $res &= $this->installSamples();
         return $res;
     }
-    
+
     private function _installDataSample(){
-        if (!file_exists(_PS_MODULE_DIR_ . 'leotempcp/libs/DataSample.php')) return false;        
+        if (!file_exists(_PS_MODULE_DIR_ . 'leotempcp/libs/DataSample.php')) return false;
         require_once( _PS_MODULE_DIR_ . 'leotempcp/libs/DataSample.php' );
-        
+
         $sample = new Datasample(1);
         return $sample->processImport($this->name);
     }
@@ -293,11 +293,11 @@ class LeoSliderLayer extends Module {
         if(Tools::getIsset("leoajax") && Tools::getValue("leoajax") == 1){
             $this->processAJax();
         }
-        
+
         if(Tools::getIsset('correctGroup') && Tools::getValue('correctGroup')){
             $this->correctDataGroup();
         }
-        
+
         if(Tools::getIsset('copylang') && Tools::getValue('copylang')){
             $this->copyLang();
         }
@@ -318,7 +318,7 @@ class LeoSliderLayer extends Module {
             $this->_html .= $this->renderGroupConfig();
         }
         elseif (Tools::isSubmit("showsliders") || Tools::isSubmit("submitSlider") || Tools::isSubmit("editSlider") || Tools::isSubmit("deleteSlider") || Tools::isSubmit("addNewSlider") || Tools::isSubmit("changeStatus")) {
-            
+
             if (Tools::isSubmit("submitSlider") || Tools::isSubmit("deleteSlider") || Tools::isSubmit("changeStatus") || Tools::getValue("duplicateSlider")){
                 if ($this->postValidation()) {
                     $this->_postProcess();
@@ -337,7 +337,7 @@ class LeoSliderLayer extends Module {
 
         return $this->_html;
     }
-    
+
     /*
      * this function is only for developer of leotheme.com
      * to correct data for group + slider
@@ -346,7 +346,7 @@ class LeoSliderLayer extends Module {
         $id_group = Tools::getValue('id_group');
         if($id_group){
             $group = new LeoSliderGroup($id_group);
-            
+
             if(Validate::isLoadedObject($group)){
                //correct group data
                $params = Tools::unSerialize($group->params);
@@ -354,7 +354,7 @@ class LeoSliderLayer extends Module {
                    $group->params = base64_encode(Tools::jsonEncode($params));
                    $group->save();
                }
-               
+
                //correct slider
                $sliders = $this->getSlides($group->id);
                foreach ($sliders as $slider){
@@ -362,7 +362,7 @@ class LeoSliderLayer extends Module {
                    if(Validate::isLoadedObject($sliderObj)){
                        $tmp = Tools::unSerialize($sliderObj->params);
                        if($tmp) $sliderObj->params = base64_encode(Tools::jsonEncode($tmp));
-                       
+
                        $tmpObj = array();
                        foreach($sliderObj->video as $key=>$value){
                            $tmp = Tools::unSerialize($value);
@@ -371,7 +371,7 @@ class LeoSliderLayer extends Module {
                        }
                        if($tmpObj)
                         $sliderObj->video = $tmpObj;
-                       
+
                        $tmpObj = array();
                        foreach($sliderObj->layersparams as $key=>$value){
                            $tmp = Tools::unSerialize($value);
@@ -385,10 +385,10 @@ class LeoSliderLayer extends Module {
                        $sliderObj->save();
                    }
                }
-               
+
             }
         }
-        
+
     }
 
     public function copyLang(){
@@ -398,7 +398,7 @@ class LeoSliderLayer extends Module {
             $sliderObj = new SliderLayer();
             $defined = $sliderObj->getDefinition($sliderObj);
             $defined = $defined['fields'];
-            
+
             foreach ($sliders as $slider){
                 $sliderObj = new SliderLayer($slider["id_slide"]);
                 if($sliderObj->id){
@@ -416,7 +416,7 @@ class LeoSliderLayer extends Module {
                             break;
                         }
                     }
-                    
+
                     foreach ($languages as $language) {
                         if($language['id_lang'] != $default_lang){
                             foreach($tmp as $key=>$val){
@@ -449,7 +449,7 @@ class LeoSliderLayer extends Module {
         else
             $this->_html .= $this->displayConfirmation($this->l('Importing was successful'));
     }
-    
+
     /*
      * add new
      * delete
@@ -495,7 +495,7 @@ class LeoSliderLayer extends Module {
                 }else{
                     $tmpBackColor = $video["background_color"];
                 }
-                    
+
 
                 $slide->video[$language['id_lang']] = base64_encode(Tools::jsonEncode($video));
                 $layersparams = new stdClass();
@@ -579,7 +579,7 @@ class LeoSliderLayer extends Module {
                 foreach ($slide->video as &$value)
                     if ($value == "")
                         $value = $tmpData["video"];
-                
+
                 if (!$slide->add()) {
                     $result = array("error" => 1, "text" => $this->l('The slide could not be added.'));
                 }
@@ -594,8 +594,8 @@ class LeoSliderLayer extends Module {
             $this->clearCache();
             die(Tools::jsonEncode($result));
         }
-        
-        
+
+
         if (Tools::getValue('action') && Tools::getValue('action') == 'updateSlidesPosition' && Tools::getValue('slides')) {
             $slides = Tools::getValue('slides');
 
@@ -608,7 +608,7 @@ class LeoSliderLayer extends Module {
             die(Tools::jsonEncode($result));
             $this->clearCache();
         }
-        
+
         if ( Tools::getValue('action') && Tools::getValue('action') == 'deleteSlider'){
             $id_slide = Tools::getValue('id_slide');
             $slide = new SliderLayer((int)$id_slide);
@@ -618,16 +618,16 @@ class LeoSliderLayer extends Module {
             $this->clearCache();
             die(Tools::jsonEncode($result));
         }
-        
+
         if ( Tools::getValue('action') && Tools::getValue('action') == 'duplicateSlider'){
             $slide = new SliderLayer((int) Tools::getValue('id_slide'));
             $sliderNew = new SliderLayer();
-            
+
             $defined = $sliderNew->getDefinition("SliderLayer");
-            
+
             foreach ($defined["fields"] as $ke => $val) {
                 if ($ke == "id") continue;
-                
+
                 if ($ke=="title"){
                     $tmp = array();
                     foreach($slide->title as $kt=>$vt){
@@ -640,11 +640,11 @@ class LeoSliderLayer extends Module {
             if(!$sliderNew->add()){
                 $result= array("error"=>1,"text"=>$this->l('The slide could not be duplicate.'));
             }
-            
+
             $this->clearCache();
             die(Tools::jsonEncode($result));
         }
-        
+
     }
 
     public function renderList() {
@@ -661,15 +661,15 @@ class LeoSliderLayer extends Module {
 
         $groupObj = new LeoSliderGroup((int) Tools::getValue('id_group'));
         $id_shop = $this->context->shop->id;
-        
-        if($id_shop != $groupObj->id_shop) 
+
+        if($id_shop != $groupObj->id_shop)
             Tools::redirectAdmin( AdminController::$currentIndex .'&configure=' . $this->name . '&token=' . Tools::getAdminTokenLite('AdminModules'));
         $jsonData = Tools::jsonDecode(base64_decode($groupObj->params), true);
         if(!is_array($jsonData))
             $jsonData = array();
         $this->groupData = array_merge($this->groupData, $jsonData);
         $arrayParam['secure_key'] = $this->secure_key;
-        
+
         $this->context->smarty->assign(array(
             'link' => $this->context->link,
             'slides' => $slides,
@@ -807,7 +807,7 @@ class LeoSliderLayer extends Module {
         if (Tools::getValue('id_slide') && $this->slideExists((int) Tools::getValue('id_slide'))) {
             $fields_form['form']['input'][] = array('type' => 'hidden', 'name' => 'id_slide');
         }
- 
+
         $fields_form['form']['input'][] = array('type' => 'hidden', 'name' => 'id_group');
 
 
@@ -861,7 +861,7 @@ class LeoSliderLayer extends Module {
 
         $languages = Language::getLanguages(false);
 
-        
+
         foreach ($languages as $lang) {
             $fields['image'][$lang['id_lang']] = Tools::getValue('image_' . (int) $lang['id_lang'], $slide->image[$lang['id_lang']]);
             $fields['thumbnail'][$lang['id_lang']] = Tools::getValue('thumbnail_' . (int) $lang['id_lang'], $slide->thumbnail[$lang['id_lang']]);
@@ -900,7 +900,7 @@ class LeoSliderLayer extends Module {
         if ($this->_currentSlider->layersparams) {
             $layers = array();
             //echo "<pre>";print_r($this->_currentSlider->layersparams);die;
-            
+
             foreach ($this->_currentSlider->layersparams as $key => $val) {
                 $layer = Tools::jsonDecode(base64_decode($val), true);
                 //$layer = $std->layers;
@@ -909,7 +909,7 @@ class LeoSliderLayer extends Module {
                         if (isset($l['layer_caption']))
                             $l['layer_caption'] = addslashes(str_replace("'", '&apos;', html_entity_decode(str_replace(array("\n", "\r", "\t"), '', utf8_decode($l['layer_caption'])), ENT_QUOTES, 'UTF-8')));
                     }
-                 
+
                 $layers[] = array("langID" => $key, "content" => json_encode($layer));
             }
         }
@@ -944,7 +944,7 @@ class LeoSliderLayer extends Module {
 
         return $this->display(__FILE__, 'slider_editor.tpl');
     }
-    
+
     public function checkExistAnyGroup(){
         $this->context = Context::getContext();
         $id_shop = $this->context->shop->id;
@@ -994,7 +994,7 @@ class LeoSliderLayer extends Module {
             if ($group['id_leosliderlayer_groups'] == Tools::getValue("id_group") || (!Tools::getValue("id_group") && !Tools::isSubmit("addNewGroup") &&$group['id_leosliderlayer_groups'] == Configuration::get('LEOSLIDERLAYER_GROUP_DE'))){
                 $this->_currentGroup["id_group"] = $group['id_leosliderlayer_groups'];
                 $this->_currentGroup["title"] = $group['title'];
-                
+
                 $params = Tools::jsonDecode(base64_decode($group["params"]), true);
                 if ($params)
                     foreach ($params as $k => $v) {
@@ -1046,9 +1046,9 @@ class LeoSliderLayer extends Module {
             array("id" => "2", "name" => 2), array("id" => "3", "name" => 3));
 
         $timeLinerPosition = array(array("id" => "bottom", "name" => $this->l("Bottom")), array("id" => "top", "name" => $this->l("Top")));
-        
+
         $arrayCol = array('12','10','9-6','9','8','7-2','6','4-8','4','3','2-4','2');
-        
+
         $navigatorType = array(array("id" => "none", "name" => $this->l("None")), array("id" => "bullet", "name" => $this->l("Bullet")),
             array("id" => "thumb", "name" => $this->l("Thumbnail")),
             array("id" => "custom", "name" => $this->l("Custom")),
@@ -1056,16 +1056,16 @@ class LeoSliderLayer extends Module {
         );
         $navigatorArrows = array(array("id" => "none", "name" => $this->l("None")), array("id" => "nexttobullets", "name" => $this->l("Next To Bullets")),
             array("id" => "verticalcentered", "name" => $this->l("Vertical Colorentered")));
-        
+
         $navigationStyle = array(array("id" => "round", "name" => $this->l("Round")), array("id" => "navbar", "name" => $this->l("Navbar")),
             array("id" => "round-old", "name" => $this->l("Round Old")), array("id" => "square-old", "name" => $this->l("Square Old")), array("id" => "navbar-old", "name" => $this->l("Navbar Old")));
-        
+
         $hiden_phone = array(array("id" => "", "name" => $this->l("None")), array("id" => "hidden-xs", "name" => $this->l("hidden in phone")),
             array("id" => "hidden-sm", "name" => $this->l("Hidden in tablet")));
-        
+
         $hidden_config = array('hidden-lg'=>$this->l('Hidden in Large devices'),'hidden-md'=>$this->l('Hidden in Medium devices'),
             'hidden-sm'=>$this->l('Hidden in Small devices'),'hidden-xs'=>$this->l('Hidden in Extra small devices'),'hidden-sp'=>$this->l('Hidden in Smart Phone'));
-        
+
         //general config
         $fields_form = array(
             'form' => array(
@@ -1389,7 +1389,7 @@ class LeoSliderLayer extends Module {
                     'class' => 'btn btn-default')
             ),
         );
-        
+
         if (Tools::isSubmit('id_group') && LeoSliderGroup::groupExists((int) Tools::getValue('id_group'))) {
             //$slide = new LeoSliderGroup((int)Tools::getValue('id_group'));
             $fields_form['form']['input'][] = array('type' => 'hidden', 'name' => 'id_group');
@@ -1448,7 +1448,7 @@ class LeoSliderLayer extends Module {
 
     public function postValidation() {
         $errors = array();
-        
+
         if (Tools::isSubmit('submitGroup')){
             if (Tools::isSubmit('id_group'))
             {
@@ -1461,7 +1461,7 @@ class LeoSliderLayer extends Module {
 					$errors[] = $this->l('Invalid title group');
             if (!Validate::isInt(Tools::getValue('active_group')) || (Tools::getValue('active_group') != 0 && Tools::getValue('active_group') != 1))
                     $errors[] = $this->l('Invalid group state');
-            
+
             if (!Validate::isInt($groupValue['touch_mobile']) || ($groupValue['touch_mobile'] != 0 && $groupValue['touch_mobile'] != 1))
                     $errors[] = $this->l('Invalid touch mobile state');
             if (!Validate::isInt($groupValue['stop_on_hover']) || ($groupValue['stop_on_hover'] != 0 && $groupValue['stop_on_hover'] != 1))
@@ -1476,12 +1476,12 @@ class LeoSliderLayer extends Module {
                     $errors[] = $this->l('Invalid Show Background Image state');
             if (!Validate::isInt($groupValue['show_navigator']) || ($groupValue['show_navigator'] != 0 && $groupValue['show_navigator'] != 1))
                     $errors[] = $this->l('Invalid Always Show Navigator state');
-            
+
             //check interger isUnsignedInt
             $intArray = array("delay"=>$this->l('Invalid Delay value'), "width"=>$this->l('Invalid Width value'), "height"=>$this->l('Invalid Height value'),
-                "offset_horizontal"=>$this->l('Invalid Offset Horizontal value'), "offset_vertical"=>$this->l('Invalid Offset Vertical value'), "hide_navigator_after"=>$this->l('Invalid Hide Navigator After value'), 
+                "offset_horizontal"=>$this->l('Invalid Offset Horizontal value'), "offset_vertical"=>$this->l('Invalid Offset Vertical value'), "hide_navigator_after"=>$this->l('Invalid Hide Navigator After value'),
                 "thumbnail_width"=>$this->l('Invalid Thumbnail Width value'), "thumbnail_height"=>$this->l('Invalid Thumbnail Height value'), "thumbnail_amount"=>$this->l('Invalid Thumbnail Amount value'));
-            
+
             foreach($intArray as $key=>$value){
                 if (isset($groupValue[$key]) && !Validate::isInt($groupValue[$key]) && $groupValue[$key]!="")
                         $errors[] = $value;
@@ -1489,7 +1489,7 @@ class LeoSliderLayer extends Module {
             if (!Validate::isColor(Tools::getValue("background_color")))
                 $errors[] = $this->l('Invalid Background color value');
         }
-        
+
         /* Display errors if needed */
         if (count($errors))
         {
@@ -1501,7 +1501,7 @@ class LeoSliderLayer extends Module {
         /* Returns if validation is ok */
         return true;
     }
-    
+
     public function getErrorLog(){
         return $this->_error_text;
     }
@@ -1549,7 +1549,7 @@ class LeoSliderLayer extends Module {
                     $this->clearCache();
 					Tools::redirectAdmin( AdminController::$currentIndex .'&configure=' . $this->name . '&token=' . Tools::getAdminTokenLite('AdminModules').'&editgroup=1&id_group='.$group->id );
                 }
-			}	
+			}
             //save in config to edit next time
             $this->clearCache();
         } /* Process Slide status */
@@ -1580,8 +1580,8 @@ class LeoSliderLayer extends Module {
                 $this->_html .= $this->displayError('Could not delete');
             else
                 $this->_html .= $this->displayConfirmation($this->l('Group deleted'));
-				
-			Tools::redirectAdmin( 'index.php?controller=AdminModules&token=' . Tools::getAdminTokenLite('AdminModules').'&configure=leosliderlayer&tab_module=leotheme&module_name=leosliderlayer&conf=4'); 	
+
+			Tools::redirectAdmin( 'index.php?controller=AdminModules&token=' . Tools::getAdminTokenLite('AdminModules').'&configure=leosliderlayer&tab_module=leotheme&module_name=leosliderlayer&conf=4');
         }else if (Tools::isSubmit("changeStatus")) {
             $slide = new SliderLayer((int) Tools::getValue('sslider'));
             if ($slide->active == 0)
@@ -1621,7 +1621,7 @@ class LeoSliderLayer extends Module {
 
 
             $sliderParams = Tools::jsonDecode(base64_decode($group["params"]), true);
-			
+
 			if(!is_array($sliderParams))
 				return '';
 			$sliderParams = array_merge($this->groupData, $sliderParams);
@@ -1637,7 +1637,7 @@ class LeoSliderLayer extends Module {
                $sliderParams["background"] = 'background: url('.__PS_BASE_URI__ . "modules/" . $this->name . "/images/".$sliderParams["background_url"].') no-repeat scroll left 0 '.$sliderParams["background_color"].';';
             else
                $sliderParams["background"] = 'background-color:'.$sliderParams["background_color"];
-           
+
             //include library genimage
             if (!class_exists('PhpThumbFactory')) {
                 require_once _PS_MODULE_DIR_ . 'leosliderlayer/libs/phpthumb/ThumbLib.inc.php';
@@ -1649,10 +1649,11 @@ class LeoSliderLayer extends Module {
                 $slider['params'] = Tools::jsonDecode(base64_decode($slider["params"]), true);
                 $slider['layersparams'] = Tools::jsonDecode(base64_decode($slider["layersparams"]), true);
                 $slider['video'] = Tools::jsonDecode(base64_decode($slider["video"]), true);
-                
+
                 $slider['data_link'] = '';
-                if ($slider['params']['enable_link'] && $slider['link'])
-                    $slider['data-link'] = 'data-link="' . $slider['link'] . '"';
+                if($slider['params']['enable_link'] && $slider['link']) {
+                    $slider['data_link'] = 'data-link="' . $slider['link'] . '"';
+                }
 
                 $slider['data_delay'] = $slider['params']['delay'] ? 'data-delay="' . (int) $slider['params']['delay'] . '"' : '';
 
@@ -1666,7 +1667,7 @@ class LeoSliderLayer extends Module {
                 $slider['background_color'] = '';
                 if(isset($slider['video']['background_color']) && $slider['video']['background_color'])
                     $slider['background_color'] = $slider['video']['background_color'];
-                 
+
                 if($slider['image'] == '') $slider['image'] = "blank.gif";
                 if ($sliderParams['image_cropping']) {
                     //gender main_image
@@ -1698,7 +1699,7 @@ class LeoSliderLayer extends Module {
                         $slider['thumbnail'] = '';
                     }
                 }
-                
+
                 if($slider['layersparams'])
                         foreach($slider['layersparams'] as &$layerCss){
                                 $layerCssVal = '';
@@ -1706,13 +1707,13 @@ class LeoSliderLayer extends Module {
                                 if(isset($layerCss['layer_background_color']) && $layerCss['layer_background_color']) $layerCssVal .= ($layerCssVal!=''?';':'').'background-color:'.$layerCss['layer_background_color'];
                                 if(isset($layerCss['layer_color']) && $layerCss['layer_color']) $layerCssVal.= ($layerCssVal!=''?';':'').'color:'.$layerCss['layer_color'];
                                 $layerCss['css'] = $layerCssVal;
-                                if(!isset($layerCss['layer_link'])) 
+                                if(!isset($layerCss['layer_link']))
                                     $layerCss['layer_link'] = str_replace("_ASM_","&",$slider['link']);
                                 else
                                     $layerCss['layer_link'] = str_replace("_ASM_","&",  $layerCss['layer_link']);
                                 if(isset($layerCss['layer_caption']) && $layerCss['layer_caption'])
                                     $layerCss['layer_caption'] = utf8_decode ($layerCss['layer_caption']);
-                                
+
                         }
 
                 $sliders[$key] = $slider;
@@ -1732,7 +1733,7 @@ class LeoSliderLayer extends Module {
     }
 
     /*
-     * 
+     *
      */
 
     public function renderThumb($src_file, $width, $height) {
@@ -1773,19 +1774,19 @@ class LeoSliderLayer extends Module {
 
         return $path;
     }
-	
+
 	public function hookHeader(){
 		if (!isset($this->context->controller->php_self) || $this->context->getMobileDevice() != false) return ;
 		$this->context->controller->addCSS(($this->_path) . 'css/typo.css', 'all');
 		$this->context->controller->addJS($this->_path . 'js/jquery.themepunch.plugins.min.js');
 	$this->context->controller->addJS($this->_path . 'js/jquery.themepunch.revolution.min.js');
-		
+
 	}
-	
+
     public function processHook($hookName, $group = null) {
         if (!isset($this->context->controller->php_self) || $this->context->getMobileDevice() != false) return ;
         if (!$this->_prepareHook($hookName, $group)) return false;
-        
+
         return $this->display(__FILE__, $this->name . '.tpl', $this->getCacheId($hookName.'_'.$this->name.'.tpl'));
     }
 
@@ -1817,7 +1818,7 @@ class LeoSliderLayer extends Module {
     {
         return $this->processHook("displayTopColumn");
     }
-    
+
     public function hookDisplayHome()
     {
         return $this->processHook("displayHome");
@@ -1845,12 +1846,12 @@ class LeoSliderLayer extends Module {
             }
             $group->id_shop = (int)$params['new_id_shop'];
             $group->add();
-            
+
             //import slider
             $sliderList = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS('SELECT sl.id_leosliderlayer_slides as id
                             FROM `' . _DB_PREFIX_ . 'leosliderlayer_slides` sl
                             WHERE sl.`id_group` = ' . (int)$list["id_leosliderlayer_groups"]);
-            
+
             $fields = array("active","image","thumbnail","video","title","layersparams","title","position","link","params");
             foreach($sliderList as $key=>$value){
                 $sliderOld = new SliderLayer($value["id"]);
@@ -1883,9 +1884,9 @@ class LeoSliderLayer extends Module {
         $this->context->controller->addJqueryUI('ui.mouse');
         $this->context->controller->addJqueryUI('ui.draggable');
         $this->context->controller->addJqueryUI('ui.sortable');
-        
+
         //$this->context->controller->addJS($this->_path . 'assets/admin/jquery-ui-1.10.3.custom.min.js');
-        
+
         $this->context->controller->addCSS(_PS_JS_DIR_ . 'jquery/ui/themes/ui-lightness/jquery-ui-1.8.16.custom.css');
 
         $this->context->controller->addJqueryUI('ui.dialog');
@@ -1902,7 +1903,7 @@ class LeoSliderLayer extends Module {
             color:#000;
         }
         </style>
-        
+
         <script type="text/javascript">
                         $(function() {
                 var $mySlides = $("#slides");

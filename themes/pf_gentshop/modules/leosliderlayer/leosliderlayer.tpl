@@ -26,7 +26,7 @@
                          data-start="{$layer.time_start}"
                          data-easing="easeOutExpo" {if $layer.layer_endtime}data-end="{$layer.layer_endtime}" data-endspeed="{$layer.layer_endspeed}" {if $layer.layer_endeasing != "nothing"}data-endeasing="{$layer.layer_endeasing}"{/if}{/if} {if $layer.layer_link}data-link="{$layer.layer_link}"{/if}
                          {if $layer.css}style="{$layer.css}"{/if}>
-                        
+
                          {if $layer.layer_type == "image"}
                          <img src="{$sliderImgUrl}{$layer.layer_content}" alt=""/>
                          {elseif $layer.layer_type == "video"}
@@ -42,11 +42,11 @@
                     </div>
                     {/foreach}
                     {/if}
-                </li>           
+                </li>
                 {/foreach}
                 {/if}
             </ul>
-            {if $sliderParams.show_time_line} 
+            {if $sliderParams.show_time_line}
             <div class="tp-bannertimer tp-{$sliderParams.time_line_position}"></div>
             {/if}
         </div>
@@ -56,54 +56,47 @@
 {/if}
 
 <script type="text/javascript">
-             {literal}
-                 var tpj=jQuery;
-                 
-                 if (tpj.fn.cssOriginal!=undefined)
-                 tpj.fn.css = tpj.fn.cssOriginal;
+{literal}
+     var tpj=jQuery;
 
-                 tpj("#sliderlayer{/literal}{$sliderIDRand}{literal}").revolution(
-                 {
-                     delay:{/literal}{$sliderParams.delay}{literal},
-                 startheight:{/literal}{$sliderParams.height}{literal},
-                 startwidth:{/literal}{$sliderParams.width}{literal},
+     if (tpj.fn.cssOriginal!=undefined) tpj.fn.css = tpj.fn.cssOriginal;
 
-
-                 hideThumbs:{/literal}{$sliderParams.hide_navigator_after}{literal},
-
-                 thumbWidth:{/literal}{$sliderParams.thumbnail_width}{literal},                     
-                 thumbHeight:{/literal}{$sliderParams.thumbnail_height}{literal},
-                 thumbAmount:{/literal}{$sliderParams.thumbnail_amount}{literal},
-                 {/literal}{if $sliderParams.navigator_type != "both"}{literal}
-                 navigationType:"{/literal}{$sliderParams.navigator_type}{literal}",
-                 {/literal}{else}{literal}
-                 navsecond:"both",
-                 {/literal}{/if}{literal}
-                 navigationArrows:"{/literal}{$sliderParams.navigator_arrows}{literal}",                
-                 {/literal}{if $sliderParams.navigation_style != "none"}{literal}
-                 navigationStyle:"{/literal}{$sliderParams.navigation_style}{literal}",          
-                 {/literal}{/if}{literal}
-
-                 navOffsetHorizontal:{/literal}{if $sliderParams.offset_horizontal}{$sliderParams.offset_horizontal}{else}0{/if}{literal},
-				 {/literal}{if $sliderParams.offset_vertical}{literal}
-                 navOffsetVertical:{/literal}{$sliderParams.offset_vertical}{literal},  
-				{/literal}{/if}{literal}	
-                 touchenabled:"{/literal}{if $sliderParams.touch_mobile}on{else}off{/if}{literal}",         
-                 onHoverStop:"{/literal}{if $sliderParams.stop_on_hover}on{else}off{/if}{literal}",                     
-                 shuffle:"{/literal}{if $sliderParams.shuffle_mode}on{else}off{/if}{literal}",  
-                 stopAtSlide: {/literal}{if $sliderParams.auto_play}-1{else}1{/if}{literal},                        
-                 stopAfterLoops:{/literal}{if $sliderParams.auto_play}-1{else}0{/if}{literal},                     
-
-                 hideCaptionAtLimit:0,              
-                 hideAllCaptionAtLilmit:0,              
-                 hideSliderAtLimit:0,           
-                 fullWidth:"{/literal}{$sliderFullwidth}{literal}",
-                 shadow:{/literal}{$sliderParams.shadow_type}{literal}
-                 });
-                 $( document ).ready(function() {
-                    $('.caption',$('#sliderlayer{/literal}{$sliderIDRand}{literal}')).click(function(){
-                        if($(this).data('link') != undefined && $(this).data('link') != '') location.href = $(this).data('link');
-                    });
-                 });
-             {/literal}
+     tpj("#sliderlayer{/literal}{$sliderIDRand}{literal}").revolution({
+        delay:{/literal}{$sliderParams.delay}{literal},
+        startheight:{/literal}{$sliderParams.height}{literal},
+        startwidth:{/literal}{$sliderParams.width}{literal},
+        hideThumbs:{/literal}{$sliderParams.hide_navigator_after}{literal},
+        thumbWidth:{/literal}{$sliderParams.thumbnail_width}{literal},
+        thumbHeight:{/literal}{$sliderParams.thumbnail_height}{literal},
+        thumbAmount:{/literal}{$sliderParams.thumbnail_amount}{literal},
+        {/literal}{if $sliderParams.navigator_type != "both"}{literal}
+        navigationType:"{/literal}{$sliderParams.navigator_type}{literal}",
+        {/literal}{else}{literal}
+        navsecond:"both",
+        {/literal}{/if}{literal}
+        navigationArrows:"{/literal}{$sliderParams.navigator_arrows}{literal}",
+        {/literal}{if $sliderParams.navigation_style != "none"}{literal}
+        navigationStyle:"{/literal}{$sliderParams.navigation_style}{literal}",
+        {/literal}{/if}{literal}
+        navOffsetHorizontal:{/literal}{if $sliderParams.offset_horizontal}{$sliderParams.offset_horizontal}{else}0{/if}{literal},
+        {/literal}{if $sliderParams.offset_vertical}{literal}
+        navOffsetVertical:{/literal}{$sliderParams.offset_vertical}{literal},
+        {/literal}{/if}{literal}
+        touchenabled:"{/literal}{if $sliderParams.touch_mobile}on{else}off{/if}{literal}",
+        onHoverStop:"{/literal}{if $sliderParams.stop_on_hover}on{else}off{/if}{literal}",
+        shuffle:"{/literal}{if $sliderParams.shuffle_mode}on{else}off{/if}{literal}",
+        stopAtSlide: {/literal}{if $sliderParams.auto_play}-1{else}1{/if}{literal},
+        stopAfterLoops:{/literal}{if $sliderParams.auto_play}-1{else}0{/if}{literal},
+        hideCaptionAtLimit:0,
+        hideAllCaptionAtLilmit:0,
+        hideSliderAtLimit:0,
+        fullWidth:"{/literal}{$sliderFullwidth}{literal}",
+        shadow:{/literal}{$sliderParams.shadow_type}{literal}
+     });
+     $( document ).ready(function() {
+        $('.caption',$('#sliderlayer{/literal}{$sliderIDRand}{literal}')).click(function(){
+            if($(this).data('link') != undefined && $(this).data('link') != '') location.href = $(this).data('link');
+        });
+     });
+{/literal}
 </script>

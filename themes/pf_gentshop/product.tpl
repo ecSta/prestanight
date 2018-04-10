@@ -540,7 +540,7 @@
 			{if isset($product) && $product->customizable}
 			<!--Customization -->
 			<section class="page-product-box no-print">
-				<h3 class="page-product-heading">{l s='Product customization'}</h3>
+				<span class="page-product-heading h3">{l s='Product customization'}</span>
 				<!-- Customizable products -->
 				<form method="post" action="{$customizationFormTarget}" enctype="multipart/form-data" id="customizationForm" class="clearfix">
 					<p class="infoCustomizable">
@@ -586,7 +586,7 @@
 					{/if}
 					{if $product->text_fields|intval}
 						<div class="customizableProductsText clearfix">
-							<h5 class="product-heading-h5">{l s='Text'}</h5>
+							<span class="product-heading-h5">{l s='Text'}</span>
 							<ul id="text_fields" class="row">
 							{counter start=0 assign='customizationField'}
 							{foreach from=$customizationFields item='field' name='customizationFields'}

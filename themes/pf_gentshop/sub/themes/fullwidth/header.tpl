@@ -13,7 +13,7 @@
 			<div class="quick-access">
 				{hook h="displayNav"}
 				<div id="hotlineService" class="hidden-xs" title="{l s='From Monday to Friday, <br />10am to 6pm'}" data-toggle="tooltip" data-placement="bottom" data-container="body" data-html="true">
-					<span class="hidden-md">{l s="Hotline"}&nbsp;</span>
+					<span class="hidden-md oct8ne-phone">{l s="Hotline"}&nbsp;</span>
 					<i class="icon-phone"></i>&nbsp;04 22 13 20 83
 				</div>
 			</div>
