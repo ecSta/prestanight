@@ -79,8 +79,7 @@
 							{else}
 								<img id="bigpic" class="img-responsive" itemprop="image" src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'thickbox_default')|escape:'html':'UTF-8'}" title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" />
 								{if !$content_only}
-									<!-- <span class="span_link no-print">{l s='View larger'}</span> -->
-									<a class="span_link no-print fancybox" data-fancybox-group="other-views" href="{$link->getImageLink($product->link_rewrite, $cover.id_image, '')|escape:'html':'UTF-8'}">{l s='View larger'}</a>
+									<a class="span_link no-print fancybox visible-md visible-lg" data-fancybox-group="other-views" href="{$link->getImageLink($product->link_rewrite, $cover.id_image, '')|escape:'html':'UTF-8'}">{l s='View larger'}</a>
 								{/if}
 							{/if}
 						</span>
@@ -416,10 +415,15 @@
 							</div>
 
 							<div class="action no-print">
+								{** ABU Service installation **}
 								<div class="buttons_bottom_block no-print">
-									<a id="serviceInstallBtn" class="btn" href="{$link->getCMSLink(11)}" target="_blank" rel="nofollow" style="display:none;">
+									<a id="serviceInstallBtn" class="btn" tabindex="0" role="button" style="display:none;">
 										<i class="icon-wrench icon-left"></i>Service installation
 									</a>
+									<div id="serviceInstallText" class="hidden" tabindex="-1" data-title="Pas de panique!">
+										<p>SONUIT met à votre disposition son réseau d’installateurs professionnels reconnus.</p>
+										<a class="btn" href="{$link->getCMSLink(11)}" target="_blank" rel="nofollow">En savoir plus</a>
+									</div>
 								</div>
 
 								{if isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS}{$HOOK_PRODUCT_ACTIONS}{/if}
@@ -540,7 +544,7 @@
 			{if isset($product) && $product->customizable}
 			<!--Customization -->
 			<section class="page-product-box no-print">
-				<h3 class="page-product-heading">{l s='Product customization'}</h3>
+				<span class="page-product-heading h3">{l s='Product customization'}</span>
 				<!-- Customizable products -->
 				<form method="post" action="{$customizationFormTarget}" enctype="multipart/form-data" id="customizationForm" class="clearfix">
 					<p class="infoCustomizable">
@@ -586,7 +590,7 @@
 					{/if}
 					{if $product->text_fields|intval}
 						<div class="customizableProductsText clearfix">
-							<h5 class="product-heading-h5">{l s='Text'}</h5>
+							<span class="product-heading-h5">{l s='Text'}</span>
 							<ul id="text_fields" class="row">
 							{counter start=0 assign='customizationField'}
 							{foreach from=$customizationFields item='field' name='customizationFields'}
@@ -871,3 +875,6 @@
 {addJsDefL name='product_fileButtonHtml'}{l s='Choose File' js=1}{/addJsDefL}
 {/strip}
 {/if}
+
+{** ABU pinterest SAVE hover button **}
+<script async defer data-pin-hover="true" data-pin-tall="true" data-pin-round="true" src="//assets.pinterest.com/js/pinit.js"></script>

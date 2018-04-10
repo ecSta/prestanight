@@ -32,7 +32,7 @@
 								</span>
 
 							{/if*}
-							<span itemprop="price" class="product-price">
+							<span itemprop="price" class="product-price" content="{if !$priceDisplay}{number_format($product.price, 2, '.', '')}{else}{number_format($product.price_tax_exc, 2, '.', '')}{/if}">
 								{if !$priceDisplay}{convertPrice price=$product.price}{else}{convertPrice price=$product.price_tax_exc}{/if}
 							</span>
 							<meta itemprop="priceCurrency" content="{$priceDisplay}" />
@@ -158,7 +158,7 @@
 										{hook h="displayProductPriceBlock" id_product=$product.id_product type="old_price"}
 
 									{/if}
-									<span itemprop="price" class="product-price">
+									<span itemprop="price" class="product-price" content="{if !$priceDisplay}{number_format($product.price, 2, '.', '')}{else}{number_format($product.price_tax_exc, 2, '.', '')}{/if}">
 										{if !$priceDisplay}{convertPrice price=$product.price}{else}{convertPrice price=$product.price_tax_exc}{/if}
 									</span>
 									<meta itemprop="priceCurrency" content="{$currency->iso_code}" />

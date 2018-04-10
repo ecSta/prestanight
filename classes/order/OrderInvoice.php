@@ -407,6 +407,9 @@ class OrderInvoiceCore extends ObjectModel
 			{
 				$row['ecotax_tax_incl'] = Tools::ps_round($row['ecotax_tax_excl'] + ($row['ecotax_tax_excl'] * $row['rate'] / 100), _PS_PRICE_DISPLAY_PRECISION_);
 				$row['ecotax_tax_excl'] = Tools::ps_round($row['ecotax_tax_excl'], _PS_PRICE_DISPLAY_PRECISION_);
+				// ABU : custom calculation ecotax --- [[ find HT from TTC : TTC / (1  + TVA) = HT  ]]
+				$rate = $row['rate'] > 0 ? $row['rate'] : (float)0.2;
+				$row['ecotax_tax_ht_abu'] = Tools::ps_round($row['ecotax_tax_incl'] / (1 + $rate) , _PS_PRICE_DISPLAY_PRECISION_);
 				$taxes[] = $row;
 			}
 		return $taxes;

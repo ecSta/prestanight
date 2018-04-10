@@ -232,7 +232,7 @@
 				</tr>
 				{/if}
 
-				{if !empty($ecotax_tax_breakdown)}
+				{*** if !empty($ecotax_tax_breakdown)}
 					{foreach $ecotax_tax_breakdown as $ecotax_tax_infos}
 						{if $ecotax_tax_infos.ecotax_tax_excl > 0}
 						<tr style="line-height:5px;">
@@ -241,7 +241,7 @@
 						</tr>
 						{/if}
 					{/foreach}
-				{/if}
+				{/if ***}
 
 				{if $order_invoice->total_wrapping_tax_incl > 0}
 				<tr style="line-height:5px;">
@@ -287,6 +287,8 @@
 <!-- / PRODUCTS TAB -->
 
 <div style="line-height: 1pt">&nbsp;</div>
+
+{$tax_tab}
 
 {if isset($order_invoice->note) && $order_invoice->note}
 <div style="line-height: 1pt">&nbsp;</div>

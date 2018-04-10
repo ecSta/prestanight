@@ -184,17 +184,22 @@ hr {
 #submitAccount { float: right; margin-left: 1em }
 
 /* product.tpl */
-#product .product-info { margin-left: 1%; margin-right: 1% }
+#product .product-info { margin-left: 2vw; margin-right: 2vw; }
 #product .product-info .tab-nav ul li a { background-color: #F7F7F7 }
 #product .product-info .tab-nav ul li.active a { background-color: #FFF; border-top: 1px solid #E5E5E5 !important }
 #product .product-info .tab-nav ul li.active:first-child a { border-left: 1px solid #E5E5E5 !important }
 #product .product-info .tab-nav ul li.active:last-child a { border-right: 1px solid #E5E5E5 !important }
 #product .product-info .tab-nav ul li:hover a { background-color: #EEE }
 #product .product-info .tab-nav ul li.active:hover a { background-color: #FFF }
+.pb-left-column .product-image-block, .pb-left-column #views_block { padding: 0 30px 0 0 }
+@media (max-width: 991px) {
+  .pb-left-column #views_block { margin-bottom: 40px; }
+  .socialsharing_product { text-align: center; }
+}
 @media (max-width: 767px) {
   #product .product-info .tab-nav ul li:last-child { display: none; }
 }
-.pb-left-column .product-image-block, .pb-left-column #views_block { padding: 0 30px 0 0 }
+#serviceInstallBtn { line-height: 2em; }
 #thumbs_list { height: 108px; padding: 0 }
 #thumbs_list li { width: 110px; float: left }
 .box-info-product { border: 0 none }
@@ -552,11 +557,12 @@ label[for="cgv"], label[for="agreeMetre"] { display: inline-block; padding-left:
  */
 /* ptsslideshow */
 .bannercontainer.banner-fullwidth li .caption h3 { font-size: inherit; font-weight: inherit; line-height: inherit; margin: inherit }
+.bannercontainer.banner-fullwidth li .slidelink a { display: block; clear: both; }
 @media (min-width: 768px) and (max-width: 991px) {
   .bannercontainer.banner-fullwidth .tparrows { transform: scale(.7); -webkit-transform: scale(.7); }
 }
 @media (max-width: 767px) {
-  .bannercontainer.banner-fullwidth .tparrows { transform: scale(.7); -webkit-transform: scale(.5); }
+  .bannercontainer.banner-fullwidth .tparrows { display: none; }
 }
 
 /* ptsBlockManufacturer */
@@ -682,6 +688,12 @@ label[for="cgv"], label[for="agreeMetre"] { display: inline-block; padding-left:
   -moz-transition: left 0.15s ease-out;
   -o-transition: left 0.15s ease-out;
   transition: left 0.15s ease-out;
+}
+
+/* Popover soNuit Touch */
+.popover.in .popover-title {
+  background-color: #77BEB6;
+  color: #FFF;
 }
 
 /* Tilt animation pour les Noeuds */

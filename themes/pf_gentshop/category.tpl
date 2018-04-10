@@ -131,20 +131,20 @@
 
 {if $category->id == 32}
 <script type="application/ld+json">
-    {
-        "@context": "http://schema.org/",
-        "@type":    "Product",
-        "name":     "Lit superposé et lit jumeaux GLICERIO",
-        "image":    [
-            "https://www.sonuit.fr/17099-thickbox_default/lits-superposes-enfants-personnalisable-f217-glicerio.jpg",
-            "https://www.sonuit.fr/7419-thickbox_default/lit-superpose-avec-rangement-personnalisable-f259-glicerio.jpg"
-        ],
-        "description":     "des lits superposés qui permettent d’optimiser la place, lit empilable ou décalé avec rangement",
-        "aggregateRating": {
-            "@type":       "AggregateRating",
-            "ratingValue": "4.6",
-            "reviewCount": "89"
-        }
-    }
+{
+    "@context": "http://schema.org/",
+    "@type":    "Product",
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.6",
+        "reviewCount": "89"
+    },
+    "description": "des lits superposés qui permettent d’optimiser la place, lit empilable ou décalé avec rangement",
+    "name": "Lit superposé et lit jumeaux GLICERIO",
+    "image": [
+        "https://www.sonuit.fr/17099-thickbox_default/lits-superposes-enfants-personnalisable-f217-glicerio.jpg",
+        "https://www.sonuit.fr/7419-thickbox_default/lit-superpose-avec-rangement-personnalisable-f259-glicerio.jpg"
+    ]
+}
 </script>
 {/if}
