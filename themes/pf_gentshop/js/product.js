@@ -130,6 +130,14 @@ $(document).ready(function()
 		}
 	});
 
+	// Popover info instead of redirect customer instantly to another page
+	$('#serviceInstallBtn').popover({
+		content: $('#serviceInstallText').html(),
+		html: true,
+		placement: 'left',
+		title: $('#serviceInstallText').data('title')
+	});
+
 	$('[data-tooltip]').tooltip();
 
 	// Scroll down content to view the product image
@@ -809,7 +817,7 @@ function updatePrice()
 		$('.price-ecotax').show();
 	}
 
-	// Unit price are the price per piece, per Kg, per m²
+	// Unit price are the price per piece, per Kg, per mÂ²
 	// It doesn't modify the price, it's only for display
 	if (productUnitPriceRatio > 0)
 	{

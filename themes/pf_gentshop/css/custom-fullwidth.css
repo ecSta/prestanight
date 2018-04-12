@@ -191,10 +191,14 @@ hr {
 #product .product-info .tab-nav ul li.active:last-child a { border-right: 1px solid #E5E5E5 !important }
 #product .product-info .tab-nav ul li:hover a { background-color: #EEE }
 #product .product-info .tab-nav ul li.active:hover a { background-color: #FFF }
+.pb-left-column .product-image-block, .pb-left-column #views_block { padding: 0 30px 0 0 }
+@media (max-width: 991px) {
+    .pb-left-column #views_block { margin-bottom: 40px; }
+}
 @media (max-width: 767px) {
   #product .product-info .tab-nav ul li:last-child { display: none; }
 }
-.pb-left-column .product-image-block, .pb-left-column #views_block { padding: 0 30px 0 0 }
+#serviceInstallBtn { line-height: 2em; }
 #thumbs_list { height: 108px; padding: 0 }
 #thumbs_list li { width: 110px; float: left }
 .box-info-product { border: 0 none }

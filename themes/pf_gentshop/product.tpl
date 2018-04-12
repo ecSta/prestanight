@@ -80,7 +80,7 @@
 								<img id="bigpic" class="img-responsive" itemprop="image" src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'thickbox_default')|escape:'html':'UTF-8'}" title="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" alt="{if !empty($cover.legend)}{$cover.legend|escape:'html':'UTF-8'}{else}{$product->name|escape:'html':'UTF-8'}{/if}" />
 								{if !$content_only}
 									<!-- <span class="span_link no-print">{l s='View larger'}</span> -->
-									<a class="span_link no-print fancybox" data-fancybox-group="other-views" href="{$link->getImageLink($product->link_rewrite, $cover.id_image, '')|escape:'html':'UTF-8'}">{l s='View larger'}</a>
+									<a class="span_link no-print fancybox visible-md visible-lg" data-fancybox-group="other-views" href="{$link->getImageLink($product->link_rewrite, $cover.id_image, '')|escape:'html':'UTF-8'}">{l s='View larger'}</a>
 								{/if}
 							{/if}
 						</span>
@@ -416,10 +416,15 @@
 							</div>
 
 							<div class="action no-print">
+								{** ABU Service installation **}
 								<div class="buttons_bottom_block no-print">
-									<a id="serviceInstallBtn" class="btn" href="{$link->getCMSLink(11)}" target="_blank" rel="nofollow" style="display:none;">
+									<a id="serviceInstallBtn" class="btn" tabindex="0" role="button" style="display:none;">
 										<i class="icon-wrench icon-left"></i>Service installation
 									</a>
+									<div id="serviceInstallText" class="hidden" tabindex="-1" data-title="Pas de panique!">
+										<p>SONUIT met à votre disposition son réseau d’installateurs professionnels reconnus.</p>
+										<a class="btn" href="{$link->getCMSLink(11)}" target="_blank" rel="nofollow">En savoir plus</a>
+									</div>
 								</div>
 
 								{if isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS}{$HOOK_PRODUCT_ACTIONS}{/if}
