@@ -28,29 +28,29 @@
     {l s='Customer service'} - {if isset($customerThread) && $customerThread}{l s='Your reply'}{else}{l s='Contact us'}{/if}
 </h1>
 {if isset($confirmation)}
-	<p class="alert alert-success">{l s='Your message has been successfully sent to our team.'}</p>
-	<ul class="footer_links clearfix">
-		<li>
+    <p class="alert alert-success">{l s='Your message has been successfully sent to our team.'}</p>
+    <ul class="footer_links clearfix">
+        <li>
             <a class="btn btn-default button button-small" href="{$base_dir}">
                 <span>
                     <i class="icon-chevron-left"></i>{l s='Home'}
                 </span>
             </a>
         </li>
-	</ul>
+    </ul>
 {elseif isset($alreadySent)}
-	<p class="alert alert-warning">{l s='Your message has already been sent.'}</p>
-	<ul class="footer_links clearfix">
-		<li>
+    <p class="alert alert-warning">{l s='Your message has already been sent.'}</p>
+    <ul class="footer_links clearfix">
+        <li>
             <a class="btn btn-default button button-small" href="{$base_dir}">
                 <span>
                     <i class="icon-chevron-left"></i>{l s='Home'}
                 </span>
             </a>
         </li>
-	</ul>
+    </ul>
 {else}
-	{include file="$tpl_dir./errors.tpl"}
+    {include file="$tpl_dir./errors.tpl"}
 
     {*ABU edit: ajout du ptit text HELP > Sur-mesure for dummies*}
     {if $surmesure}
@@ -74,7 +74,7 @@
     </div>
     {/if}
 
-	<form action="{$request_uri}" method="post" class="contact-form-box" enctype="multipart/form-data">
+    <form action="{$request_uri}" method="post" class="contact-form-box" enctype="multipart/form-data">
         <div id="contactForm_hotline" class="panel panel-default">
             <div class="panel-heading">
                 <i class="icon-phone icon-fw icon-2x"></i>
@@ -86,7 +86,7 @@
             </div>
         </div>
 
-		<fieldset>
+        <fieldset>
         <h3 class="page-subheading">{l s='send a message'}</h3>
         <div class="clearfix row">
             <div class="col-xs-12 col-md-3">
@@ -176,11 +176,14 @@
                 </div>
             </div>
         </div>
+        <div class="g-recaptcha" data-sitekey="6LcLKkoUAAAAADyyzD0XEPuWNtvliqHY1gv_hz7m" data-callback="v"></div>
         <div class="submit">
-            <button type="submit" name="submitMessage" id="submitMessage" class="btn btn-outline-default"><span>{l s='Send'}</span></button>
-		</div>
-	</fieldset>
+            <button type="submit" name="submitMessage" id="submitMessage" class="btn btn-outline-default" disabled="disabled"><span>{l s='Send'}</span></button>
+        </div>
+    </fieldset>
 </form>
+
+<script type="text/javascript">var v = function(response) { $('#submitMessage').prop('disabled',false);};</script>
 {/if}
 {addJsDefL name='contact_fileDefaultHtml'}{l s='No file selected' js=1}{/addJsDefL}
 {addJsDefL name='contact_fileButtonHtml'}{l s='Choose File' js=1}{/addJsDefL}
