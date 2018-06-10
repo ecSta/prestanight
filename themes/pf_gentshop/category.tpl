@@ -1,27 +1,6 @@
-{*
-* 2007-2014 PrestaShop
-*
-* NOTICE OF LICENSE
-*
-* This source file is subject to the Academic Free License (AFL 3.0)
-* that is bundled with this package in the file LICENSE.txt.
-* It is also available through the world-wide-web at this URL:
-* http://opensource.org/licenses/afl-3.0.php
-* If you did not receive a copy of the license and are unable to
-* obtain it through the world-wide-web, please send an email
-* to license@prestashop.com so we can send you a copy immediately.
-*
-* DISCLAIMER
-*
-* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
-* versions in the future. If you wish to customize PrestaShop for your
-* needs please refer to http://www.prestashop.com for more information.
-*
-*  @author PrestaShop SA <contact@prestashop.com>
-*  @copyright  2007-2014 PrestaShop SA
-*  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
-*  International Registered Trademark & Property of PrestaShop SA
-*}
+{**
+ * THEME FILE : GENTSHOP
+**}
 {include file="$tpl_dir./errors.tpl"}
 {if isset($category)}
     {if $category->id AND $category->active}
@@ -129,22 +108,55 @@
     {/if}
 {/if}
 
-{if $category->id == 32}
 <script type="application/ld+json">
-{
+{if $category->id == 32}
+{ldelim}
     "@context": "http://schema.org/",
-    "@type":    "Product",
-    "aggregateRating": {
+    "@type": "Product",
+    "brand": "GLICERIO",
+    "name": "Lit superposé et lit jumeaux GLICERIO",
+    "description": "des lits superposés qui permettent d’optimiser la place, lit empilable ou décalé avec rangement",
+    "aggregateRating": {ldelim}
         "@type": "AggregateRating",
         "ratingValue": "4.6",
         "reviewCount": "89"
-    },
-    "description": "des lits superposés qui permettent d’optimiser la place, lit empilable ou décalé avec rangement",
-    "name": "Lit superposé et lit jumeaux GLICERIO",
+    {rdelim},
     "image": [
         "https://www.sonuit.fr/17099-thickbox_default/lits-superposes-enfants-personnalisable-f217-glicerio.jpg",
         "https://www.sonuit.fr/7419-thickbox_default/lit-superpose-avec-rangement-personnalisable-f259-glicerio.jpg"
     ]
-}
-</script>
+{rdelim}
 {/if}
+
+{if $category->id == 81}
+{ldelim}
+    "@context": "http://schema.org",
+    "@type": "product",
+    "brand": "GLICERIO",
+    "name": "Lit escamotable pour enfant",
+    "image": "https://www.sonuit.fr/18006-thickbox_default/lit-escamotable-mural-avec-bibliotheque-personnalisable-f404-glicerio.jpg",
+    "description": "Le lit escamotable est la solution pour les petits espaces. Une utilisation quotidienne facile avec vérins intégrés où nous proposons une large gamme lit armoire\n(également appelé lit escamotable, lit rabattable ou même lit encastrable) sur notre site.",
+    "aggregateRating": {ldelim}
+        "@type": "aggregateRating",
+        "ratingValue": "4.5",
+        "reviewCount": "15"
+    {rdelim}
+{rdelim}
+{/if}
+
+{if $category->id == 42}
+{ldelim}
+    "@context": "http://schema.org",
+    "@type": "product",
+    "brand": "GLICERIO",
+    "name": "Lit mezzanine pour enfant",
+    "image": "https://www.sonuit.fr/16838/lit-mezzanine-enfant-avec-bureau-integre-personnalisable-f221-glicerio-thickbox_default.jpg",
+    "description": "Gagner de l'espace sous le lit mezzanine de la chambre enfant. Le lit surélevé est PERSONNALISABLE, et peut abriter un bureau enfant, idéal pour les petits espace optimisé.",
+    "aggregateRating": {ldelim}
+        "@type": "aggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "12"
+    {rdelim}
+{rdelim}
+{/if}
+</script>

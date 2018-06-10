@@ -1,27 +1,6 @@
-{*
-* 2007-2014 PrestaShop
-*
-* NOTICE OF LICENSE
-*
-* This source file is subject to the Academic Free License (AFL 3.0)
-* that is bundled with this package in the file LICENSE.txt.
-* It is also available through the world-wide-web at this URL:
-* http://opensource.org/licenses/afl-3.0.php
-* If you did not receive a copy of the license and are unable to
-* obtain it through the world-wide-web, please send an email
-* to license@prestashop.com so we can send you a copy immediately.
-*
-* DISCLAIMER
-*
-* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
-* versions in the future. If you wish to customize PrestaShop for your
-* needs please refer to http://www.prestashop.com for more information.
-*
-*  @author PrestaShop SA <contact@prestashop.com>
-*  @copyright  2007-2014 PrestaShop SA
-*  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
-*  International Registered Trademark & Property of PrestaShop SA
-*}
+{**
+ * THEME FILE : GENTSHOP
+**}
 
 {if $block == 1}
 	<!-- Block CMS module -->
@@ -37,7 +16,7 @@
 					{foreach from=$cms_title.categories item=cms_page}
 						{if isset($cms_page.link)}
 							<li class="bullet">
-								<a href="{$cms_page.link|escape:'html':'UTF-8'}" title="{$cms_page.name|escape:'html':'UTF-8'}">
+								<a href="{$cms_page.link|escape:'html':'UTF-8'}" title="{$cms_page.name|escape:'html':'UTF-8'}" rel="nofollow">
 									{$cms_page.name|escape:'html':'UTF-8'}
 								</a>
 							</li>
@@ -46,7 +25,7 @@
 					{foreach from=$cms_title.cms item=cms_page}
 						{if isset($cms_page.link)}
 							<li>
-								<a href="{$cms_page.link|escape:'html':'UTF-8'}" title="{$cms_page.meta_title|escape:'html':'UTF-8'}">
+								<a href="{$cms_page.link|escape:'html':'UTF-8'}" title="{$cms_page.meta_title|escape:'html':'UTF-8'}" rel="nofollow">
 									{$cms_page.meta_title|escape:'html':'UTF-8'}
 								</a>
 							</li>
@@ -54,7 +33,7 @@
 					{/foreach}
 					{if $cms_title.display_store}
 						<li>
-							<a href="{$link->getPageLink('stores')|escape:'html':'UTF-8'}" title="{l s='Our stores' mod='blockcms'}">
+							<a href="{$link->getPageLink('stores')|escape:'html':'UTF-8'}" title="{l s='Our stores' mod='blockcms'}" rel="nofollow">
 								{l s='Our stores' mod='blockcms'}
 							</a>
 						</li>
@@ -73,27 +52,27 @@
 
 			{if $display_stores_footer}
 				<li class="item">
-					<a href="{$link->getPageLink('stores')|escape:'html':'UTF-8'}" title="{l s='Our stores' mod='blockcms'}">
+					<a href="{$link->getPageLink('stores')|escape:'html':'UTF-8'}" title="{l s='Our stores' mod='blockcms'}" rel="nofollow">
 						{l s='Our stores' mod='blockcms'}
 					</a>
 				</li>
 			{/if}
 			{if $show_contact}
 			<li class="item">
-				<a href="{$link->getPageLink($contact_url, true)|escape:'html':'UTF-8'}" title="{l s='Contact us' mod='blockcms'}">
+				<a href="{$link->getPageLink($contact_url, true)|escape:'html':'UTF-8'}" title="{l s='Contact us' mod='blockcms'}" rel="nofollow">
 					{l s='Contact us' mod='blockcms'}
 				</a>
 			</li>
 			{/if}
 			{if $show_sitemap}
 			<li>
-				<a href="{$link->getPageLink('sitemap')|escape:'html':'UTF-8'}" title="{l s='Sitemap' mod='blockcms'}">
+				<a href="{$link->getPageLink('sitemap')|escape:'html':'UTF-8'}" title="{l s='Sitemap' mod='blockcms'}" rel="nofollow">
 					{l s='Sitemap' mod='blockcms'}
 				</a>
 			</li>
 			{/if}
 	        <li>
-                <a href="{$link->getPageLink('supplier')|escape:'html':'UTF-8'}" title="{l s='View a list of suppliers'}">
+                <a href="{$link->getPageLink('supplier')|escape:'html':'UTF-8'}" title="{l s='View a list of suppliers'}" rel="nofollow">
                     {l s='Suppliers' mod='blockcms'}
                 </a>
             </li>
@@ -106,7 +85,7 @@
 			{foreach from=$cmslinks item=cmslink}
 				{if $cmslink.meta_title != ''}
 					<li class="item">
-						<a href="{$cmslink.link|escape:'html':'UTF-8'}" title="{$cmslink.meta_title|escape:'html':'UTF-8'}">
+						<a href="{$cmslink.link|escape:'html':'UTF-8'}" title="{$cmslink.meta_title|escape:'html':'UTF-8'}" rel="nofollow">
 							{$cmslink.meta_title|escape:'html':'UTF-8'}
 						</a>
 					</li>
@@ -115,12 +94,5 @@
 
 		</ul>
 	</div>
-	{if $display_poweredby}
-		<section class="bottom-footer col-lg-3 col-md-3 col-sm-4 col-xs-12 clearfix">
-			<div>
-				&copy; 2014 {l s='[1]Ecommerce software by %s[/1]' mod='blockcms' sprintf=['PrestaShop™'] tags=['<a class="_blank" href="http://www.prestashop.com">']}
-			</div>
-		</section>
-	{/if}
 	<!-- /MODULE Block footer -->
 {/if}
